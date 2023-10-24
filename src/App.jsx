@@ -1,16 +1,16 @@
-import '../src/styles/App.css'
-import '../src/styles/Popup.css'
+import "../src/styles/App.css";
+import "../src/styles/Popup.css";
 import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
-import Login from './components/Login';
-import { useState } from 'react';
+import Login from "./components/Login";
+import { useState } from "react";
 
 function App() {
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(true);
 
-  function toggleModal () {
+  function toggleModal() {
     setShowModal(!showModal);
-  };
+  }
 
   return (
     <div>

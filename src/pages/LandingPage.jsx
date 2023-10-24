@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-
 export default function LandingPage(props) {
-  const { toggleModal } = props
+  const { toggleModal } = props;
 
   return (
-    <div className="container">
-      <div className="landing border border-black">
+    <div className='container'>
+      <div className='landing border border-black'>
         <h1>ASSET INVENTORY MANAGEMENT</h1>
         <h4>Manage your asset inventory in one place.</h4>
-        <button className="btn btn-success btn-lg mt-4" onClick={toggleModal}>
+        <button className='btn btn-success btn-lg mt-4' onClick={toggleModal}>
           LOG IN
         </button>
-        
       </div>
     </div>
   );
