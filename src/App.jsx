@@ -2,21 +2,45 @@ import "../src/styles/App.css";
 import "../src/styles/Popup.css";
 import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
-import Login from "./components/Login";
+import AdminView from "./pages/AdminView";
+import ManagerView from "./pages/ManagerView";
+import UserView from "./pages/UserView";
 import { useState } from "react";
 
 function App() {
-  const [showModal, setShowModal] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState({
+    username: "none",
+    category: "none",
+  });
 
-  function toggleModal() {
-    setShowModal(!showModal);
-  }
+  const loginState = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const heading =
+    userData.category === "user"
+      ? "My Requests"
+      : userData.category === "manager"
+      ? "User Requests"
+      : userData.category === "admin"
+      ? "Asset Requisitions"
+      : "";
 
   return (
     <div>
-      <Navbar />
-      <LandingPage toggleModal={toggleModal} />
-      {showModal ? <Login toggleModal={toggleModal} /> : null}
+      <Navbar heading={heading} />
+      {isLoggedIn ? (
+        userData.category === "user" ? (
+          <UserView user={userData.username} logout={loginState} />
+        ) : userData.category === "manager" ? (
+          <ManagerView user={userData.username} />
+        ) : (
+          <AdminView user={userData.username} />
+        )
+      ) : (
+        <LandingPage updateUserData={setUserData} loginState={loginState} />
+      )}
     </div>
   );
 }

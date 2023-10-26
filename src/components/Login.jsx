@@ -3,25 +3,13 @@ import { useState } from "react";
 export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  //   const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toggleModal } = props;
+  let { updateUserData, loginState, toggleModal } = props;
 
   const database = [
-    { username: "user1", password: "pass1" },
-    { username: "user2", password: "pass2" },
+    { username: "user1", password: "pass1", category: "user" },
+    { username: "user2", password: "pass2", category: "manager" },
+    { username: "user3", password: "pass3", category: "admin" },
   ];
-
-  //   const errors = {
-  //     INVALID_USER: "Invalid username",
-  //     INVALID_PASSWORD: "Invalid password",
-  //   };
-
-  //   const renderErrorMessage = (name) => {
-  //     name === errorMessages.name && (
-  //       <div className='error'>{errorMessages.message}</div>
-  //     );
-  //   };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -40,16 +28,16 @@ export default function Login(props) {
         passwordInput.classList.add("is-invalid");
       } else {
         passwordInput.classList.remove("is-invalid");
-        setIsSubmitted(true);
         toggleModal();
+        loginState();
+        updateUserData({
+          username: userData.username,
+          category: userData.category,
+        });
       }
     } else {
       // User does not exist
       usernameInput.classList.add("is-invalid");
-      //   setErrorMessages({
-      //     name: "INVALID_USER",
-      //     message: errors["INVALID_USER"],
-      //   });
     }
   };
 
@@ -57,7 +45,7 @@ export default function Login(props) {
     <div className='popup'>
       <div className='popup-inner'>
         <div className='modal-header mb-4 border-bottom'>
-          <h2>Login</h2>
+          <h3>Login</h3>
           <button
             type='button'
             className='btn-close'
@@ -71,7 +59,7 @@ export default function Login(props) {
             </span>
             <input
               type='text'
-              className='form-control'
+              className='form-control form-control-sm'
               id='username'
               value={username}
               placeholder='Username'
@@ -88,7 +76,7 @@ export default function Login(props) {
             </span>
             <input
               type='password'
-              className='form-control'
+              className='form-control form-control-sm'
               id='password'
               value={password}
               placeholder='Password'
@@ -99,15 +87,15 @@ export default function Login(props) {
             </div>
           </div>
           <div className='modal-footer'>
-            <button className='btn btn-success btn-lg mx-4' type='submit'>
-              Login
+            <button className='btn btn-success mx-4' type='submit'>
+              LOGIN
             </button>
             <button
-              className='btn btn-secondary btn-lg'
+              className='btn btn-secondary'
               type='button'
               onClick={toggleModal}
             >
-              Close
+              Cancel
             </button>
           </div>
         </form>
