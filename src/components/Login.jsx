@@ -64,6 +64,7 @@ export default function Login(props) {
               value={username}
               placeholder='Username'
               onChange={(e) => setUsername(e.target.value)}
+              autoFocus
             />
             <div id='usernameFeedback' className='invalid-feedback'>
               Invalid username.

@@ -3,16 +3,35 @@ export default function UserView(props) {
   return (
     <>
       <div className='container'>
-        <div className='d-flex justify-content-end'>
-          <h6>
-            <span className='badge text-bg-primary'>{user}</span>
-          </h6>
-          &nbsp;&middot;&nbsp;
-          <div className='logout'>
-            <i onClick={logout} className='fa-solid fa-right-from-bracket'></i>
-          </div>
-        </div>
-        <div className='border'>
+        <table className='search-and-filter mb-3'>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <div className='search d-flex align-items-end'>
+                <div className='input-group search-box'>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Search'
+                    aria-label='search'
+                    aria-describedby='search'
+                  />
+                  <button
+                    className='btn btn-outline-secondary'
+                    type='button'
+                    id='search'
+                  >
+                    <i className='bi bi-search'></i>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <div className='details-view'>
           <table className='table table-hover fs-6'>
             <thead>
               <tr>

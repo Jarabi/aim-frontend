@@ -1,26 +1,27 @@
 import React from "react";
 
 export default function Navbar(props) {
+  const { heading, user, logout } = props;
   return (
-    <div className='navbar border border-bottom-1 border-dark-subtle py-4 mb-4'>
+    <div className='navbar py-3 mb-3'>
       <nav className='container'>
         <h2 className='border border-black p-1'>Company Logo</h2>
-        <h2>{props.heading}</h2>
-        <div className='search'>
-          <div className='input-group'>
-            <input
-              type='text'
-              className='form-control'
-              placeholder='Search'
-              aria-label="Recipient's username"
-              aria-describedby='search'
-            />
+        <h2>{heading}</h2>
+        <div className='userAction d-flex justify-content-around'>
+          <div className='userIdentity d-flex flex-column align-items-center'>
+            <i className='bi bi-person-circle h4'></i>
+            <small>{user}</small>
+          </div>
+          <div className='logout d-flex align-items-center justify-center'>
             <button
-              className='btn btn-outline-secondary'
               type='button'
-              id='search'
+              onClick={logout}
+              className='btn btn-outline-danger'
+              data-bs-toggle='tooltip'
+              data-bs-placement='right'
+              data-bs-title='Logout'
             >
-              <i className='fa-solid fa-magnifying-glass'></i>
+              <i className='fa-solid fa-right-from-bracket'></i>
             </button>
           </div>
         </div>

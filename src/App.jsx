@@ -29,10 +29,10 @@ function App() {
 
   return (
     <div>
-      <Navbar heading={heading} />
+      <Navbar heading={heading} user={userData.username} logout={loginState} />
       {isLoggedIn ? (
         userData.category === "user" ? (
-          <UserView user={userData.username} logout={loginState} />
+          <UserView />
         ) : userData.category === "manager" ? (
           <ManagerView user={userData.username} />
         ) : (

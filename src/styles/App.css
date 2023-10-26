@@ -2,6 +2,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.navbar {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -13,11 +17,18 @@
     width: 200px;
 }
 
-.logout > i {
-    cursor: pointer;
-    transition: ease-in-out;
+.userAction {
+    width: 100px;
 }
 
-.logout > i:hover {
-    color: #dc3545;
+.userIdentity > i {
+    margin-bottom: -5px;
+}
+
+.search-and-filter td {
+    width: 25%;
+}
+
+.details-view {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
