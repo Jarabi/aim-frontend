@@ -32,3 +32,8 @@
 .details-view {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.details-view thead tr th {
+    background-color: #108000;
+    color: white;
+}
