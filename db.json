@@ -1,0 +1,150 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Dianna",
+      "lastName": "Brunsen",
+      "email": "dbrunsen0@ifeng.com",
+      "password": "gP4ubi8J8iUF",
+      "createdAt": "22-08-2023",
+      "staffId": "01HE3TCZE7HMGM2QR4V2YTFMSA",
+      "deparment_id": 1,
+      "role_id": 10
+    },
+    {
+      "id": 2,
+      "firstName": "Tracie",
+      "lastName": "Collcutt",
+      "email": "tcollcutt1@nymag.com",
+      "password": "kM4E1iwzaS6",
+      "createdAt": "23-10-2023",
+      "staffId": "01HE3TCZE8PYYA1VMC4HPE0KQ9",
+      "deparment_id": 2,
+      "role_id": 10
+    },
+    {
+      "id": 3,
+      "firstName": "Chantalle",
+      "lastName": "Epdell",
+      "email": "cepdell2@eventbrite.com",
+      "password": "dE6g!e<1",
+      "createdAt": "25-01-2023",
+      "staffId": "01HE3TCZE97EMJH6AKV2PBGBN8",
+      "deparment_id": 3,
+      "role_id": 10
+    },
+    {
+      "id": 4,
+      "firstName": "Valma",
+      "lastName": "Vauter",
+      "email": "vvauter3@blogtalkradio.com",
+      "password": "nL9839D&67r",
+      "createdAt": "11-10-2023",
+      "staffId": "01HE3TCZEAKS1QEFVREP6YBT05",
+      "deparment_id": 1,
+      "role_id": 10
+    },
+    {
+      "id": 5,
+      "firstName": "Maridel",
+      "lastName": "Yarn",
+      "email": "myarn4@surveymonkey.com",
+      "password": "pT4!wvAe0zA",
+      "createdAt": "27-05-2023",
+      "staffId": "01HE3TCZEAT8R7F8GS95F55DP8",
+      "deparment_id": 2,
+      "role_id": 10
+    },
+    {
+      "id": 6,
+      "firstName": "Nathanil",
+      "lastName": "Monckton",
+      "email": "nmonckton5@flickr.com",
+      "password": "uK22j1u",
+      "createdAt": "27-06-2023",
+      "staffId": "01HE3TCZECN7NEESQZ01CAKS0Z",
+      "deparment_id": 3,
+      "role_id": 10
+    },
+    {
+      "id": 7,
+      "firstName": "Ernst",
+      "lastName": "Beaver",
+      "email": "ebeaver6@irs.gov",
+      "password": "nZ0?cVlHR",
+      "createdAt": "04-07-2023",
+      "staffId": "01HE3TCZEDCPE4WVXEZMFSVDGV",
+      "deparment_id": 1,
+      "role_id": 20
+    },
+    {
+      "id": 8,
+      "firstName": "Brina",
+      "lastName": "Sturges",
+      "email": "bsturges7@auda.org.au",
+      "password": "nI7kw3C",
+      "createdAt": "21-03-2023",
+      "staffId": "01HE3TCZEE24FZB8PWMMJGW6BJ",
+      "deparment_id": 2,
+      "role_id": 20
+    },
+    {
+      "id": 9,
+      "firstName": "Jermain",
+      "lastName": "Fern",
+      "email": "jfern8@fc2.com",
+      "password": "uS59dldce4ms",
+      "createdAt": "04-07-2023",
+      "staffId": "01HE3TCZEE09QJGABJRREW264Y",
+      "deparment_id": 3,
+      "role_id": 20
+    },
+    {
+      "id": 10,
+      "firstName": "Sammy",
+      "lastName": "Diboll",
+      "email": "sdiboll9@cafepress.com",
+      "password": "bU73zvD1K",
+      "createdAt": "08-11-2022",
+      "staffId": "01HE3TCZEF48RX31E6XBS0VXQG",
+      "deparment_id": 4,
+      "role_id": 100
+    }
+  ],
+  "departments": [
+    {
+      "id": 1,
+      "name": "Sales"
+    },
+    {
+      "id": 2,
+      "name": "Legal"
+    },
+    {
+      "id": 3,
+      "name": "Human Resources"
+    },
+    {
+      "id": 4,
+      "name": "IT"
+    }
+  ],
+  "roles": [
+    {
+      "id": 10,
+      "name": "user",
+      "description": "Regular user with minimal privileges. Can only create and view own requests."
+    },
+    {
+      "id": 20,
+      "name": "manager",
+      "description": "Supervisory role. Can create and view requests only for users in own department."
+    },
+    {
+      "id": 100,
+      "name": "admin",
+      "description": "Superuser privileges. Can create, view, update and delete accounts and resources. Can update request status."
+    }
+  ],
+  "requisitions": []
+}

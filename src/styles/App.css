@@ -1,39 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+:root {
+  --jet-black: #2f2d2e;
+  --yellow-green: #99c24d;
+  --charcoal: #2e4057;
+  --blue: #048ba8;
+  --orange: #f18f01;
+}
+
 * {
-    font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  height: 100%;
 }
 
 .navbar {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .landing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 18em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--charcoal);
+  color: aliceblue;
+  padding: 10em 0;
+}
+
+.product-features {
+  background-color: #fff;
+  color: var(--jet-black);
+}
+
+.product-features > h3 {
+  background-color: var(--orange);
+}
+
+.card {
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.card-image {
+  background-color: var(--orange);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.card-footer > small {
+  border-bottom: 1px dotted var(--charcoal);
 }
 
 .landing > button {
-    width: 200px;
-}
-
-.userAction {
-    width: 100px;
+  width: 200px;
 }
 
 .userIdentity > i {
-    margin-bottom: -5px;
-}
-
-.search-and-filter td {
-    width: 25%;
+  margin-bottom: -5px;
 }
 
 .details-view {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 45em;
+  overflow: auto;
+}
+
+.details-view > table {
+  overflow-y: auto;
+}
+
+.details-view table thead th {
+  position: sticky;
+  top: 0;
 }
 
 .details-view thead tr th {
-    background-color: #108000;
-    color: white;
+  background-color: #108000;
+  color: white;
+}
+
+footer {
+  /* position: fixed;
+  left: 0;
+  bottom: 0; */
+  background-color: var(--jet-black);
+  color: white;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--orange);
 }
