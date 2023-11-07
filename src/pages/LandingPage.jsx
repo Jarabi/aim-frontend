@@ -1,11 +1,10 @@
 import { useState } from "react";
 import Login from "../components/Login";
-import landingImage from "../images/landing.png";
 import { MdOutlineInventory } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
 import { RiQuestionAnswerLine } from "react-icons/ri";
 
-export default function LandingPage({ users, loginState }) {
+export default function LandingPage({ users, loginState, setUserData }) {
   const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
@@ -21,9 +20,9 @@ export default function LandingPage({ users, loginState }) {
           <button className='btn btn-success btn-lg mt-2' onClick={toggleModal}>
             Get Started
           </button>
-          <div className='product-features mt-5'>
+          <div className='product-features mt-4'>
             <h3 className='text-center'>Product Features</h3>
-            <div className='features row row-cols-1 row-cols-md-3 g-3 p-4'>
+            <div className='features row row-cols-1 row-cols-md-3 g-3 px-3'>
               <div className='col'>
                 <div className='card h-75'>
                   <div className='card-image d-flex justify-content-center align-items-center m-3 p-2'>
@@ -108,6 +107,7 @@ export default function LandingPage({ users, loginState }) {
       {showModal && (
         <Login
           users={users}
+          setUserData={setUserData}
           loginState={loginState}
           toggleModal={toggleModal}
         />

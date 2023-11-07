@@ -9,7 +9,7 @@ export default function Navbar({ userData, isLoggedIn, loginState }) {
           <h2 className='mx-2'>inventorypro</h2>
         </div>
 
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
           <>
             <h2>
               {userData.role_id === 10
@@ -43,7 +43,7 @@ export default function Navbar({ userData, isLoggedIn, loginState }) {
               </div>
             </div>
           </>
-        )}
+        )} */}
       </nav>
     </div>
   );

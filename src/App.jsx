@@ -1,27 +1,36 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "../src/styles/App.css";
 import "../src/styles/Popup.css";
 import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
-import Views from "./pages/Views";
+import UserView from "./components/UserView";
 import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
+  const [requisitions, setRequisitions] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     const getUsers = async () => {
-      const usersFromServer = await fetchUsers();
+      const usersFromServer = await fetchResources("users");
       setUsers(usersFromServer);
     };
 
+    const getRequisitions = async () => {
+      const requisitions = await fetchResources("requisitions");
+      setUsers(requisitions);
+    };
+
     getUsers();
+    getRequisitions();
   }, []);
 
-  // Fetch users
-  const fetchUsers = async () => {
-    const res = await fetch("http://localhost:3000/users");
+  // Fetch resources
+  const fetchResources = async (resource) => {
+    const res = await fetch(`http://localhost:3000/${resource}`);
     const data = await res.json();
 
     return data;
@@ -34,14 +43,28 @@ function App() {
   return (
     <>
       <Navbar users={users} isLoggedIn={isLoggedIn} loginState={loginState} />
-      {isLoggedIn ? (
-        <Views users={users} />
-      ) : (
-        <LandingPage users={users} loginState={loginState} />
-      )}
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              {!isLoggedIn && (
+                <LandingPage
+                  users={users}
+                  loginState={loginState}
+                  setUserData={setUserData}
+                />
+              )}
+              {isLoggedIn && userData.role_id === 10 && (
+                <UserView userData={userData} requisitions={requisitions} />
+              )}
+            </>
+          }
+        />
+      </Routes>
       <Footer />
     </>
   );
-}
+};
 
 export default App;
