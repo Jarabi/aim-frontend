@@ -15,17 +15,16 @@
 }
 
 body {
-  height: 100vh;
   font-family: "Poppins", sans-serif;
 }
 
-#root {
-  height: 100%;
-}
+/* ++++++++ Navbar +++++++++++++++++ */
 
 .navbar {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+/* +++++++ LANDING PAGE ++++++++++++++++++ */
 
 .landing {
   display: flex;
@@ -33,7 +32,7 @@ body {
   align-items: center;
   background-color: var(--charcoal);
   color: aliceblue;
-  padding: 10em 0;
+  padding: 2.5em 0;
 }
 
 .product-features {
@@ -41,20 +40,26 @@ body {
   color: var(--jet-black);
 }
 
-.product-features > h3 {
+.product-features h3 {
   background-color: var(--orange);
+  padding: 1em 1em 3em;
+}
+
+.features {
+  height: 350px;
 }
 
 .card {
   width: 300px;
+  margin-top: -6rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .card-image {
   background-color: var(--orange);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 4rem;
 }
 
 .card-footer > small {
@@ -63,6 +68,18 @@ body {
 
 .landing > button {
   width: 200px;
+}
+
+/* ++++++++++ LOGIN FORM +++++++++++++++ */
+.login-form {
+  background-color: #fff;
+  width: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.form-floating > input:focus {
+  box-shadow: none;
 }
 
 .userIdentity > i {
@@ -90,9 +107,9 @@ body {
 }
 
 footer {
-  /* position: fixed;
+  position: fixed;
   left: 0;
-  bottom: 0; */
+  bottom: 0;
   background-color: var(--jet-black);
   color: white;
 }

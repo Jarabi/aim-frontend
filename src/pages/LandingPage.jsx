@@ -5,7 +5,7 @@ import { MdOutlineInventory } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
 import { RiQuestionAnswerLine } from "react-icons/ri";
 
-export default function LandingPage({ userInfo, loginState }) {
+export default function LandingPage({ users, loginState }) {
   const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
@@ -22,16 +22,16 @@ export default function LandingPage({ userInfo, loginState }) {
             Get Started
           </button>
           <div className='product-features mt-5'>
-            <h3 className='text-center p-2'>Product Features</h3>
-            <div class='row row-cols-1 row-cols-md-3 g-2 p-4'>
-              <div class='col'>
-                <div class='card h-100'>
-                  <div className='card-image d-flex justify-content-center align-items-center m-2'>
-                    <MdOutlineInventory />
+            <h3 className='text-center'>Product Features</h3>
+            <div className='features row row-cols-1 row-cols-md-3 g-3 p-4'>
+              <div className='col'>
+                <div className='card h-75'>
+                  <div className='card-image d-flex justify-content-center align-items-center m-3 p-2'>
+                    <MdOutlineInventory style={{ fontSize: "1.5rem" }} />
                   </div>
-                  <div class='card-body'>
-                    <h6 class='card-title'>Asset Inventory</h6>
-                    <small class='card-text'>
+                  <div className='card-body overflow-hidden'>
+                    <h6 className='card-title'>Asset Inventory</h6>
+                    <small className='card-text'>
                       The Asset Inventory feature of our system empowers you to
                       effortlessly track, manage, and catalog all your
                       organization's assets in one centralized repository.
@@ -45,19 +45,19 @@ export default function LandingPage({ userInfo, loginState }) {
                       better control and decision-making.
                     </small>
                   </div>
-                  <div class='card-footer'>
-                    <small class='text-body-secondary'>MORE</small>
+                  <div className='card-footer'>
+                    <small className='text-body-secondary'>MORE</small>
                   </div>
                 </div>
               </div>
-              <div class='col'>
-                <div class='card h-100'>
-                  <div className='card-image d-flex justify-content-center align-items-center m-2'>
-                    <FaUsersGear />
+              <div className='col'>
+                <div className='card h-75'>
+                  <div className='card-image d-flex justify-content-center align-items-center m-3 p-2'>
+                    <FaUsersGear style={{ fontSize: "1.5rem" }} />
                   </div>
-                  <div class='card-body'>
-                    <h6 class='card-title'>User Management</h6>
-                    <small class='card-text'>
+                  <div className='card-body overflow-hidden'>
+                    <h6 className='card-title'>User Management</h6>
+                    <small className='card-text'>
                       User Management is a core component of our asset inventory
                       system, designed to streamline the management of user
                       access and permissions. With this feature, you can create,
@@ -70,19 +70,19 @@ export default function LandingPage({ userInfo, loginState }) {
                       confidentiality.
                     </small>
                   </div>
-                  <div class='card-footer'>
-                    <small class='text-body-secondary'>MORE</small>
+                  <div className='card-footer'>
+                    <small className='text-body-secondary'>MORE</small>
                   </div>
                 </div>
               </div>
-              <div class='col'>
-                <div class='card h-100'>
-                  <div className='card-image d-flex justify-content-center align-items-center m-2'>
-                    <RiQuestionAnswerLine />
+              <div className='col'>
+                <div className='card h-75'>
+                  <div className='card-image d-flex justify-content-center align-items-center m-3 p-2'>
+                    <RiQuestionAnswerLine style={{ fontSize: "1.5rem" }} />
                   </div>
-                  <div class='card-body'>
-                    <h6 class='card-title'>Asset Requisitions</h6>
-                    <small class='card-text'>
+                  <div className='card-body overflow-hidden'>
+                    <h6 className='card-title'>Asset Requisitions</h6>
+                    <small className='card-text'>
                       Our Asset Requisitions feature simplifies and formalizes
                       the process of requesting and allocating assets within
                       your organization. Employees can submit requests for
@@ -96,8 +96,8 @@ export default function LandingPage({ userInfo, loginState }) {
                       maintain a transparent and auditable process.
                     </small>
                   </div>
-                  <div class='card-footer'>
-                    <small class='text-body-secondary'>MORE</small>
+                  <div className='card-footer'>
+                    <small className='text-body-secondary'>MORE</small>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function LandingPage({ userInfo, loginState }) {
       </div>
       {showModal && (
         <Login
-          userInfo={userInfo}
+          users={users}
           loginState={loginState}
           toggleModal={toggleModal}
         />
