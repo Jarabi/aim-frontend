@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa6";
 import headerLogo from "../images/logo.png";
 
-export default function Login({ users, loginState, toggleModal }) {
+export default function Login({ users, setUserData, loginState, toggleModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +24,7 @@ export default function Login({ users, loginState, toggleModal }) {
         passwordInput.parentElement.classList.remove("is-invalid");
         toggleModal();
         loginState();
-        userInfo({ ...userData });
+        setUserData({ ...userData });
       }
     } else {
       // Email does not exist
@@ -35,7 +35,7 @@ export default function Login({ users, loginState, toggleModal }) {
   return (
     <div className='popup'>
       <div className='popup-inner d-flex flex-column justify-content-center align-items-center'>
-        <div className='login-form p-3'>
+        <div className='login-form p-5'>
           <div className='modal-header mb-4 border-bottom'>
             <img src={headerLogo} alt='Header Logo' />
             <h3>Login</h3>

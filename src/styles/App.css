@@ -42,24 +42,23 @@ body {
 
 .product-features h3 {
   background-color: var(--orange);
-  padding: 1em 1em 3em;
+  padding: 20px;
 }
 
 .features {
-  height: 350px;
+  height: 460px;
 }
 
 .card {
   width: 300px;
-  margin-top: -6rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .card-image {
   background-color: var(--orange);
   border-radius: 50%;
-  width: 3rem;
-  height: 4rem;
+  width: 45px;
+  height: 50px;
 }
 
 .card-footer > small {
@@ -68,18 +67,6 @@ body {
 
 .landing > button {
   width: 200px;
-}
-
-/* ++++++++++ LOGIN FORM +++++++++++++++ */
-.login-form {
-  background-color: #fff;
-  width: 50%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
-.form-floating > input:focus {
-  box-shadow: none;
 }
 
 .userIdentity > i {
