@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../src/styles/App.css";
 import "../src/styles/Popup.css";
 import Navbar from "./components/Navbar";
@@ -8,7 +8,24 @@ import Footer from "./components/Footer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState({});
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const usersFromServer = await fetchUsers();
+      setUsers(usersFromServer);
+    };
+
+    getUsers();
+  }, []);
+
+  // Fetch users
+  const fetchUsers = async () => {
+    const res = await fetch("http://localhost:3000/users");
+    const data = await res.json();
+
+    return data;
+  };
 
   const loginState = () => {
     setIsLoggedIn(!isLoggedIn);
@@ -16,15 +33,11 @@ function App() {
 
   return (
     <>
-      <Navbar
-        userData={userData}
-        isLoggedIn={isLoggedIn}
-        loginState={loginState}
-      />
+      <Navbar users={users} isLoggedIn={isLoggedIn} loginState={loginState} />
       {isLoggedIn ? (
-        <Views userData={userData} />
+        <Views users={users} />
       ) : (
-        <LandingPage userInfo={setUserData} loginState={loginState} />
+        <LandingPage users={users} loginState={loginState} />
       )}
       <Footer />
     </>
