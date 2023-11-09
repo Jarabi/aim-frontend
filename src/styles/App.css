@@ -41,9 +41,14 @@ header {
 }
 
 section.hero,
-section.features {
-  height: 95vh;
+section.features,
+section.about {
+  height: 100vh;
   color: var(--off-white);
+}
+
+.about li {
+  margin-top: 10px;
 }
 
 .feature-icon {
