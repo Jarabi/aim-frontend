@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "../src/styles/App.css";
 import "../src/styles/Popup.css";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
 import UserView from "./components/UserView";
 import Footer from "./components/Footer";
@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar users={users} isLoggedIn={isLoggedIn} loginState={loginState} />
+      <Header users={users} isLoggedIn={isLoggedIn} loginState={loginState} />
       <Routes>
         <Route
           path='/'
