@@ -1,12 +1,23 @@
 import headerLogo from "../images/logo.png";
 
-export default function Navbar({ userData, isLoggedIn, loginState }) {
+export default function Header({ userData, isLoggedIn, loginState }) {
+  window.onscroll = () => {
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      document.querySelector("header").style.padding = "0.25rem";
+    } else {
+      document.querySelector("header").style.padding = "0.5rem";
+    }
+  };
+
   return (
-    <div className='navbar py-3 mb-3'>
-      <nav className='container'>
+    <header>
+      <div className='container'>
         <div className='header-logo d-flex flex-row align-items-center'>
           <img src={headerLogo} alt='Header Logo' />
-          <h2 className='mx-2'>inventorypro</h2>
+          <h2 className='ms-2'>inventorypro</h2>
         </div>
 
         {/* {isLoggedIn && (
@@ -44,7 +55,7 @@ export default function Navbar({ userData, isLoggedIn, loginState }) {
             </div>
           </>
         )} */}
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 }
