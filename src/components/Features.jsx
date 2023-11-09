@@ -9,7 +9,7 @@ import FeatureImg from "../images/blue-gradient.png";
 const Features = () => {
   return (
     <section
-      className='features'
+      id='features'
       style={{
         backgroundImage: `url(${FeatureImg})`,
         backgroundAttachment: "fixed",

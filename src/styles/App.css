@@ -34,20 +34,30 @@ header {
   transition: 0.2s;
 }
 
+.header-logo * {
+  transition: 0.2s;
+}
+
+nav {
+  width: 400px;
+}
+
+ul.navbar-nav > li {
+  margin-right: 20px;
+}
+
 /* +++++++ LANDING PAGE ++++++++++++++++++ */
 
 .landing-page {
   margin-top: 68px;
 }
 
-section.hero,
-section.features,
-section.about {
+section {
   height: 100vh;
   color: var(--off-white);
 }
 
-.about li {
+#about li {
   margin-top: 10px;
 }
 
@@ -68,7 +78,7 @@ section.about {
   color: var(--orange);
 }
 
-section.features .feature-illustration {
+section#features .feature-illustration {
   display: flex;
   justify-content: center;
   align-items: center;

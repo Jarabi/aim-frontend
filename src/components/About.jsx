@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const About = () => {
   return (
     <section
-      className='about'
+      id='about'
       style={{
         backgroundImage: `url(${AboutImg})`,
         backgroundAttachment: "fixed",

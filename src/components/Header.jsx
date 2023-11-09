@@ -6,12 +6,12 @@ export default function Header({ userData, isLoggedIn, loginState }) {
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
     ) {
-      document.querySelector("header").style.padding = "0.5rem";
+      document.querySelector("header").style.height = "55px";
       document.querySelector("header").style.fontSize = "0.9rem";
       document.querySelector(".header-title").style.fontSize = "1.5rem";
       document.querySelector(".header-img").style.width = "35px";
     } else {
-      document.querySelector("header").style.padding = "0.5rem";
+      document.querySelector("header").style.height = "70px";
       document.querySelector("header").style.fontSize = "1rem";
       document.querySelector(".header-title").style.fontSize = "2rem";
       document.querySelector(".header-img").style.width = "57px";
