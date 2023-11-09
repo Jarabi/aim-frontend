@@ -18,8 +18,8 @@ const Features = () => {
         backgroundSize: "cover",
       }}
     >
-      <h3 className='features-title text-center pt-5'>Product Features</h3>
       <div className='container'>
+        <h3 className='features-title text-center pt-5'>Product Features</h3>
         <div className='row row-cols-2 mt-5'>
           <div className='col'>
             <div className='feature-icon'>
