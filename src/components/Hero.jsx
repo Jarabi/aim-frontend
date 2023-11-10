@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeroImg from "../images/hero.png";
 
 const Hero = () => {
@@ -16,9 +17,9 @@ const Hero = () => {
       <div className='container text-center'>
         <h2>Manage assets end-to-end with IT Asset Management Software</h2>
         <p>Build a single source of truth for your IT Assets</p>
-        <button className='btn btn-success btn-lg mt-2 px-5'>
+        <Link to='/login' className='btn btn-success btn-lg mt-2 px-5'>
           Get Started
-        </button>
+        </Link>
       </div>
     </section>
   );

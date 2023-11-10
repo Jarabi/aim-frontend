@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AboutImg from "../images/about.jpg";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -53,47 +54,47 @@ const About = () => {
         </ul>
         <p>
           This is the final project of Software Engineering Foundations at{" "}
-          <a
-            href='https://www.alxafrica.com/'
+          <Link
+            to='https://www.alxafrica.com/'
             target='_blank'
             rel='noopener noreferrer'
             style={{ color: "white" }}
           >
             ALX Africa
-          </a>
+          </Link>
           . It is a collaborative effort between Chris Ndung'u and Alex Jarabi.
         </p>
 
         <p className='call-to-action'>
           Ready to streamline your asset management and boost productivity?{" "}
-          <a href='/get-started' style={{ color: "white" }}>
+          <Link to='/login' style={{ color: "white" }}>
             Get started now!
-          </a>
+          </Link>
         </p>
 
         <h4 className='project-repository mt-4'>Project Repository</h4>
         <p>
           At the moment, this project is divided into two repositories for the{" "}
           <strong>
-            <a
-              href='https://github.com/Jarabi/aim-frontend'
+            <Link
+              to='https://github.com/Jarabi/aim-frontend'
               target='_blank'
               style={{ color: "white" }}
               rel='noopener noreferrer'
             >
               Frontend
-            </a>
+            </Link>
           </strong>{" "}
           and the{" "}
           <strong>
-            <a
-              href='https://github.com/devKiratu/aim-backend'
+            <Link
+              to='https://github.com/devKiratu/aim-backend'
               target='_blank'
               style={{ color: "white" }}
               rel='noopener noreferrer'
             >
               Backend
-            </a>
+            </Link>
           </strong>
           .
         </p>
@@ -104,34 +105,34 @@ const About = () => {
             <h5 className='name'>Chris Ndung'u</h5>
             <div className='socials d-flex justify-content-around'>
               <div className='linkedIn'>
-                <a
-                  href='https://www.linkedin.com/'
+                <Link
+                  to='https://www.linkedin.com/'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaLinkedinIn />
-                </a>
+                </Link>
               </div>
               <div className='github'>
-                <a
-                  href='https://github.com/devKiratu'
+                <Link
+                  to='https://github.com/devKiratu'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaGithub />
-                </a>
+                </Link>
               </div>
               <div className='twitter'>
-                <a
-                  href='https://twitter.com/home'
+                <Link
+                  to='https://twitter.com/home'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaXTwitter />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -139,34 +140,34 @@ const About = () => {
             <h5 className='name'>Alex Jarabi</h5>
             <div className='socials d-flex justify-content-around'>
               <div className='linkedIn'>
-                <a
-                  href='https://www.linkedin.com/in/jarabialex'
+                <Link
+                  to='https://www.linkedin.com/in/jarabialex'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaLinkedinIn />
-                </a>
+                </Link>
               </div>
               <div className='github'>
-                <a
-                  href='https://github.com/Jarabi'
+                <Link
+                  to='https://github.com/Jarabi'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaGithub />
-                </a>
+                </Link>
               </div>
               <div className='twitter'>
-                <a
-                  href='https://twitter.com/jarabialex'
+                <Link
+                  to='https://twitter.com/jarabialex'
                   target='_blank'
                   style={{ color: "white" }}
                   rel='noopener noreferrer'
                 >
                   <FaXTwitter />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa6";
 import headerLogo from "../images/logo.png";
 
-export default function Login({ users, setUserData, loginState, toggleModal }) {
+const Login = ({ users, setUserData, loginState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +22,6 @@ export default function Login({ users, setUserData, loginState, toggleModal }) {
         passwordInput.parentElement.classList.add("is-invalid");
       } else {
         passwordInput.parentElement.classList.remove("is-invalid");
-        toggleModal();
         loginState();
         setUserData({ ...userData });
       }
@@ -33,20 +32,18 @@ export default function Login({ users, setUserData, loginState, toggleModal }) {
   };
 
   return (
-    <div className='popup'>
-      <div className='popup-inner d-flex flex-column justify-content-center align-items-center'>
-        <div className='login-form p-5'>
-          <div className='modal-header mb-4 border-bottom'>
-            <img src={headerLogo} alt='Header Logo' />
-            <h3>Login</h3>
-            <button
-              type='button'
-              className='btn-close'
-              onClick={toggleModal}
-            ></button>
+    <div className='container'>
+      <div className='login'>
+        <div className='login-inner'>
+          <div className='login-header d-flex align-items-center mb-1'>
+            <img
+              className='border rounded p-1'
+              src={headerLogo}
+              alt='Header Logo'
+            />
+            <h2>Login</h2>
           </div>
-          <form onSubmit={handleLogin}>
-            <p className='text-center'>Please Enter Login Email and Password</p>
+          <form className='border rounded p-3' onSubmit={handleLogin}>
             <div className='input-group has-validation mb-4'>
               <span className='input-group-text'>
                 <FaUser />
@@ -88,15 +85,8 @@ export default function Login({ users, setUserData, loginState, toggleModal }) {
               </div>
             </div>
             <div className='modal-footer'>
-              <button className='btn btn-success mx-4' type='submit'>
+              <button className='btn btn-success' type='submit'>
                 LOGIN
-              </button>
-              <button
-                className='btn btn-secondary'
-                type='button'
-                onClick={toggleModal}
-              >
-                Cancel
               </button>
             </div>
           </form>
@@ -104,4 +94,6 @@ export default function Login({ users, setUserData, loginState, toggleModal }) {
       </div>
     </div>
   );
-}
+};
+
+export default Login;

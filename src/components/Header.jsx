@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import headerLogo from "../images/logo.png";
 
 export default function Header({ userData, isLoggedIn, loginState }) {
@@ -19,13 +20,17 @@ export default function Header({ userData, isLoggedIn, loginState }) {
   };
 
   return (
-    <header>
+    <header className='d-flex'>
       <div className='container d-flex justify-content-between'>
         <div className='header-logo d-flex flex-row align-items-center'>
-          <a href='/'>
-            <img className='header-img' src={headerLogo} alt='Header Logo' />
-          </a>
-          <h2 className='header-title ms-2'>inventorypro</h2>
+          <Link to='/'>
+            <img
+              className='header-img border rounded p-1'
+              src={headerLogo}
+              alt='Header Logo'
+            />
+          </Link>
+          <h2 className='header-title mb-0 ps-1'>inventorypro</h2>
         </div>
 
         <nav className='navbar navbar-expand-lg bg-body-light'>
@@ -33,21 +38,17 @@ export default function Header({ userData, isLoggedIn, loginState }) {
             <div className='collapse navbar-collapse' id='navbarNav'>
               <ul className='navbar-nav px-5'>
                 <li className='nav-item'>
-                  <a
-                    className='nav-link active'
-                    aria-current='page'
-                    href='#hero'
-                  >
+                  <a className='nav-link' href='/#hero'>
                     Home
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#features'>
+                  <a className='nav-link' href='/#features'>
                     Features
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#about'>
+                  <a className='nav-link' href='/#about'>
                     About
                   </a>
                 </li>

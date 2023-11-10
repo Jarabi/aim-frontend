@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "../src/styles/App.css";
-import "../src/styles/Popup.css";
 import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
+import Login from "./components/Login";
 import UserView from "./components/UserView";
 import Footer from "./components/Footer";
 
@@ -61,6 +61,7 @@ const App = () => {
             </>
           }
         />
+        <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />
     </>
