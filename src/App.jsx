@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import UserView from "./components/UserView";
 import Footer from "./components/Footer";
 import RequisitionView from "./components/RequisitionView";
+import { AUTH_TOKEN } from "./api/constants";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,61 +15,29 @@ const App = () => {
   const [requisitions, setRequisitions] = useState([]);
   const [userData, setUserData] = useState([]);
 
+  const checkLoggedInStatus = async () => {
+    const token = await localStorage.getItem(AUTH_TOKEN);
+    if (!token) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  };
   useEffect(() => {
-    const getUsers = async () => {
-      const usersFromServer = await fetchResources("users");
-      setUsers(usersFromServer);
-    };
-
-    const getRequisitions = async () => {
-      const requisitions = await fetchResources("requisitions");
-      setRequisitions(requisitions);
-    };
-
-    getUsers();
-    getRequisitions();
+    checkLoggedInStatus();
   }, []);
-
-  // Fetch resources
-  const fetchResources = async (resource) => {
-    const res = await fetch(`http://localhost:3000/${resource}`);
-    const data = await res.json();
-
-    return data;
-  };
-
-  console.log(requisitions);
-  const loginState = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
 
   return (
     <>
-      <Header users={users} isLoggedIn={isLoggedIn} loginState={loginState} />
+      <Header />
       <Routes>
+        <Route path="/" element={<>{!isLoggedIn && <LandingPage />}</>} />
+        <Route path="/login" element={<Login />} />
         <Route
-          path='/'
-          element={
-            <>
-              {!isLoggedIn && (
-                <LandingPage
-                  users={users}
-                  loginState={loginState}
-                  setUserData={setUserData}
-                />
-              )}
-              {isLoggedIn && userData.role_id === 10 && (
-                <UserView userData={userData} requisitions={requisitions} />
-              )}
-            </>
-          }
-        />
-        <Route path='/login' element={<Login />} />
-        <Route
-          path='/user'
+          path="/user"
           element={<UserView userData={userData} requisitions={requisitions} />}
         />
-        <Route path='/requisitionView' element={<RequisitionView />} />
+        <Route path="/requisitionView" element={<RequisitionView />} />
       </Routes>
       <Footer />
     </>
