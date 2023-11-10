@@ -22,21 +22,29 @@ export default function Header({ userData, isLoggedIn, loginState }) {
   return (
     <header className='d-flex'>
       <div className='container d-flex justify-content-between'>
-        <div className='header-logo d-flex flex-row align-items-center'>
-          <Link to='/'>
+        <div className='header-logo d-flex'>
+          <Link
+            className='d-flex flex-row align-items-center'
+            to='/'
+            style={{ color: "#2f2d2e", textDecoration: "none" }}
+          >
             <img
               className='header-img border rounded p-1'
               src={headerLogo}
               alt='Header Logo'
+              style={{ width: "57px" }}
             />
+            <h2 className='header-title mb-0 ps-1'>inventorypro</h2>
           </Link>
-          <h2 className='header-title mb-0 ps-1'>inventorypro</h2>
         </div>
 
         <nav className='navbar navbar-expand-lg bg-body-light'>
           <div className='container-fluid'>
             <div className='collapse navbar-collapse' id='navbarNav'>
-              <ul className='navbar-nav px-5'>
+              <ul
+                className='navbar-nav'
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
                 <li className='nav-item'>
                   <a className='nav-link' href='/#hero'>
                     Home

@@ -1,31 +1,17 @@
-const Requisition = () => {
+import { Link } from "react-router-dom";
+
+const Requisition = ({ requisition }) => {
   return (
-    <div>
-      <table className='table table-hover fs-6'>
-        <thead>
-          <tr>
-            <th scope='col'>REQUEST</th>
-            <th scope='col'>JUSTIFICATION</th>
-            <th scope='col'>CREATED</th>
-            <th scope='col'>STATUS</th>
-            <th scope='col'>APPROVER</th>
-            <th scope='col'>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope='row'>New laptop</td>
-            <td>Replacement for faulty laptop</td>
-            <td>25-Aug-2023</td>
-            <td>Approved</td>
-            <td>John Mwangi</td>
-            <td>
-              <a href='#'>View</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <tr>
+      <td scope='row'>{requisition.title}</td>
+      <td>{requisition.justification}</td>
+      <td>{requisition.createdAt}</td>
+      <td>{requisition.status}</td>
+      <td>{requisition.approvedBy}</td>
+      <td>
+        <Link to='requisitionView'>View</Link>
+      </td>
+    </tr>
   );
 };
 

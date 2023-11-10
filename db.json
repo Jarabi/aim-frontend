@@ -146,5 +146,42 @@
       "description": "Superuser privileges. Can create, view, update and delete accounts and resources. Can update request status."
     }
   ],
-  "requisitions": []
+  "requisitions": [
+    {
+      "id": "1",
+      "title": "New laptop",
+      "justification": "Current laptop is worn out",
+      "status": "Approved",
+      "approvedAt": "2023-11-08T07:33:00.000Z",
+      "createdAt": "2023-11-08T07:29:44.000Z",
+      "fulfilledAt": "2023-11-08T07:39:43.000Z",
+      "approvedBy": "John Mwangi",
+      "fulfilledBy": "7859b91a-2c73-49a9-8b5e-162e6d378347",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "title": "New laptop",
+      "justification": "Current laptop is worn out",
+      "status": "Approved",
+      "approvedAt": "2023-11-08T07:33:00.000Z",
+      "createdAt": "2023-11-08T07:29:44.000Z",
+      "fulfilledAt": "2023-11-08T07:39:43.000Z",
+      "approvedBy": "John Mwangi",
+      "fulfilledBy": "7859b91a-2c73-49a9-8b5e-162e6d378347",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "title": "New laptop",
+      "justification": "Current laptop is worn out",
+      "status": "Approved",
+      "approvedAt": "2023-11-08T07:33:00.000Z",
+      "createdAt": "2023-11-08T07:29:44.000Z",
+      "fulfilledAt": "2023-11-08T07:39:43.000Z",
+      "approvedBy": "John Mwangi",
+      "fulfilledBy": "7859b91a-2c73-49a9-8b5e-162e6d378347",
+      "userId": "1"
+    }
+  ]
 }

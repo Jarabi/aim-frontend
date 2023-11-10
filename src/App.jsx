@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./components/Login";
 import UserView from "./components/UserView";
 import Footer from "./components/Footer";
+import RequisitionView from "./components/RequisitionView";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,7 +22,7 @@ const App = () => {
 
     const getRequisitions = async () => {
       const requisitions = await fetchResources("requisitions");
-      setUsers(requisitions);
+      setRequisitions(requisitions);
     };
 
     getUsers();
@@ -36,6 +37,7 @@ const App = () => {
     return data;
   };
 
+  console.log(requisitions);
   const loginState = () => {
     setIsLoggedIn(!isLoggedIn);
   };
@@ -62,6 +64,11 @@ const App = () => {
           }
         />
         <Route path='/login' element={<Login />} />
+        <Route
+          path='/user'
+          element={<UserView userData={userData} requisitions={requisitions} />}
+        />
+        <Route path='/requisitionView' element={<RequisitionView />} />
       </Routes>
       <Footer />
     </>
