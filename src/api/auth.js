@@ -11,14 +11,20 @@ const loginUser = async (credentials) => {
     if (response.status === 201) {
       localStorage.setItem(AUTH_TOKEN, response.data.accessToken);
     }
-    return response.data;
+    return {
+      status: response.status,
+      data: response.data
+    };
   } catch (error) {
-    return error.response.data;
+    return {
+      status: error.response.status,
+      data: error.response.data
+    };
   }
 };
 
 const authApi = {
-  loginUser,
+  loginUser
 };
 
 export default authApi;

@@ -16,18 +16,30 @@ import client from "./client";
 const createUser = async (userData) => {
   try {
     const response = await client.post("/users", userData);
-    return response.data;
+    return {
+      status: response.status,
+      data: response.data
+    };
   } catch (error) {
-    return error;
+    return {
+      status: error.response.status,
+      data: error.response.data
+    };
   }
 };
 
 const fetchAll = async () => {
   try {
     const response = await client.get("/users");
-    return response.data;
+    return {
+      status: response.status,
+      data: response.data
+    };
   } catch (error) {
-    return error.response.data;
+    return {
+      status: error.response.status,
+      data: error.response.data
+    };
   }
 };
 
@@ -38,9 +50,15 @@ const fetchAll = async () => {
 const fetchOneById = async (id) => {
   try {
     const response = await client.get(`/users/${id}`);
-    return response.data;
+    return {
+      status: response.status,
+      data: response.data
+    };
   } catch (error) {
-    return error.response.data;
+    return {
+      status: error.response.status,
+      data: error.response.data
+    };
   }
 };
 
