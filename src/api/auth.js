@@ -23,8 +23,13 @@ const loginUser = async (credentials) => {
   }
 };
 
+const logUserOut = () => {
+  localStorage.removeItem(AUTH_TOKEN);
+};
+
 const authApi = {
-  loginUser
+  loginUser,
+  logUserOut
 };
 
 export default authApi;
