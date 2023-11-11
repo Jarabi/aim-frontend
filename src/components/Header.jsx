@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import headerLogo from "../images/logo.png";
 
-export default function Header({ userData, isLoggedIn, loginState }) {
+export default function Header() {
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
@@ -20,43 +20,43 @@ export default function Header({ userData, isLoggedIn, loginState }) {
   };
 
   return (
-    <header className='d-flex'>
-      <div className='container d-flex justify-content-between'>
-        <div className='header-logo d-flex'>
+    <header className="d-flex">
+      <div className="container d-flex justify-content-between">
+        <div className="header-logo d-flex">
           <Link
-            className='d-flex flex-row align-items-center'
-            to='/'
+            className="d-flex flex-row align-items-center"
+            to="/"
             style={{ color: "#2f2d2e", textDecoration: "none" }}
           >
             <img
-              className='header-img border rounded p-1'
+              className="header-img border rounded p-1"
               src={headerLogo}
-              alt='Header Logo'
+              alt="Header Logo"
               style={{ width: "57px" }}
             />
-            <h2 className='header-title mb-0 ps-1'>inventorypro</h2>
+            <h2 className="header-title mb-0 ps-1">inventorypro</h2>
           </Link>
         </div>
 
-        <nav className='navbar navbar-expand-lg bg-body-light'>
-          <div className='container-fluid'>
-            <div className='collapse navbar-collapse' id='navbarNav'>
+        <nav className="navbar navbar-expand-lg bg-body-light">
+          <div className="container-fluid">
+            <div className="collapse navbar-collapse" id="navbarNav">
               <ul
-                className='navbar-nav'
+                className="navbar-nav"
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#hero'>
+                <li className="nav-item">
+                  <a className="nav-link" href="/#hero">
                     Home
                   </a>
                 </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#features'>
+                <li className="nav-item">
+                  <a className="nav-link" href="/#features">
                     Features
                   </a>
                 </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#about'>
+                <li className="nav-item">
+                  <a className="nav-link" href="/#about">
                     About
                   </a>
                 </li>

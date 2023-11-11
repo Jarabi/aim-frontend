@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
 import { AUTH_TOKEN } from "../api/constants";
 
 export const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const checkLoggedInStatus = () => {
     const token = localStorage.getItem(AUTH_TOKEN);
     if (!token) {
-      setIsLoggedIn(false);
+      return false;
     } else {
-      setIsLoggedIn(true);
+      return true;
     }
   };
-  useEffect(() => {
-    checkLoggedInStatus();
-  }, []);
 
-  return { isLoggedIn };
+  return { isLoggedIn: checkLoggedInStatus() };
 };

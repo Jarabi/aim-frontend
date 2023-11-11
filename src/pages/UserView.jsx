@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Requisitions from "./Requisitions";
+import Requisitions from "../components/Requisitions";
 // import NewRequest from "../components/NewRequest";
 
 const UserView = () => {

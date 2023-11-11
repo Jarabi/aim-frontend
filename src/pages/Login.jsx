@@ -15,13 +15,11 @@ const Login = () => {
       email,
       password
     };
-
     const response = await authApi.loginUser(credentials);
     if (response.status === 201) {
       //navigate to dashboard
-      navigate("/user");
+      navigate("/dashboard");
     }
-    console.log(response);
   };
 
   return (
