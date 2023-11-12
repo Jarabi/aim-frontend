@@ -26,7 +26,7 @@ export default function Header({ userInfo }) {
   return (
     <header className='d-flex'>
       <div className='container d-flex justify-content-between'>
-        <Link
+        {/* <Link
           className='navbarToggler d-flex align-items-center me-2'
           data-bs-toggle='offcanvas'
           data-bs-target='#offcanvasScrolling'
@@ -42,7 +42,7 @@ export default function Header({ userInfo }) {
               borderRadius: "5px",
             }}
           ></i>
-        </Link>
+        </Link> */}
         <div className='header-logo d-flex me-auto'>
           <Link
             className='d-flex flex-row align-items-center'

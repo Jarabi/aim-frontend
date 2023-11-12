@@ -55,7 +55,7 @@ const UserView = ({ userData }) => {
           </div>
         </div>
       </div>
-      <h5 className='requisitions-view text-center'>User Requisitions</h5>
+      <h5 className='form-header text-center'>User Requisitions</h5>
       {requisitions.data && requisitions.data.length > 0 ? (
         <Requisitions userData={userData} requisitions={requisitions.data} />
       ) : (
