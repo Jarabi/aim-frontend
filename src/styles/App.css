@@ -12,6 +12,8 @@
   --light-blue: #206ef3;
   --light-grey: #727c85;
   --off-white: #f5f5f5;
+
+  --topNavbarHeight: 70px;
 }
 
 * {
@@ -148,7 +150,7 @@ section#features .feature-illustration {
 }
 
 /* ++++++++ REQUISITIONS ++++++++++++++++ */
-.requisitions-view,
+.user-view,
 .requisition-view {
   color: var(--off-white);
   background-color: var(--charcoal);
@@ -183,4 +185,16 @@ section#features .feature-illustration {
 footer {
   background-color: var(--charcoal);
   color: white;
+}
+
+/* Admin page */
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  .sidebar-nav {
+    /* transform: none; */
+    margin-top: var(--topNavbarHeight);
+  }
 }

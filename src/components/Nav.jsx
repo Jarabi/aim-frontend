@@ -24,7 +24,7 @@ const Nav = () => {
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='/login'>
-                <strong>Login</strong>
+                Login
               </a>
             </li>
           </ul>

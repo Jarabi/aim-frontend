@@ -9,23 +9,27 @@ export default function Dashboard() {
   const location = useLocation();
   const data = location.state;
   const [userData, setUserData] = useState();
-  const [userRole, setUserRole] = useState();
-
-  const fetchData = async () => {
-    const res = await usersApi.fetchOneById(data.id);
-    setUserData((userData) => ({ ...userData, res }));
-    setUserRole(res.data.role.name);
-  };
 
   useEffect(() => {
-    fetchData();
+    const getUser = async () => {
+      const userFromServer = await fetchUser(data.id);
+      setUserData(userFromServer);
+    };
+
+    getUser();
   }, []);
+
+  const fetchUser = async (id) => {
+    const res = await usersApi.fetchOneById(id);
+    return res;
+  };
 
   return (
     <div className='container dashboard'>
-      {userRole === "regular" && <UserView userData={userData} />}
+      <AdminView />
+      {/* {userRole === "regular" && <UserView userData={userData} />}
       {userRole === "approver" && <ManagerView />}
-      {userRole === "admin" && <AdminView />}
+      {userRole === "admin" && <AdminView userData={userData} />} */}
     </div>
   );
 }
