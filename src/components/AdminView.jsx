@@ -85,7 +85,7 @@ export default function AdminView({ userData }) {
               </div>
             </div>
 
-            <h5 className='requisition-view text-center mt-4'>Requisitions</h5>
+            <h5 className='user-form text-center mt-4'>Requisitions</h5>
             <table className='table'>
               <thead>
                 <tr>
