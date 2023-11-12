@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Requisition = ({ requisition }) => {
@@ -9,7 +10,14 @@ const Requisition = ({ requisition }) => {
       <td>{requisition.status}</td>
       <td>{requisition.approvedBy}</td>
       <td>
-        <Link to='requisitionView'>View</Link>
+        <Link
+          type='button'
+          className='btn btn-outline-primary btn-sm'
+          to='/requisitionView'
+          state={requisition}
+        >
+          View
+        </Link>
       </td>
     </tr>
   );

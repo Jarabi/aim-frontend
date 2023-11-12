@@ -140,14 +140,16 @@ section#features .feature-illustration {
 }
 
 /* ++++++++++ User page ++++++++++++++++++ */
-.user-page {
-  margin-top: 80px;
+.user-page,
+.dashboard {
+  margin-top: 90px;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
 }
 
 /* ++++++++ REQUISITIONS ++++++++++++++++ */
-.requisitions-view {
+.requisitions-view,
+.requisition-view {
   color: var(--off-white);
   background-color: var(--charcoal);
   border-bottom: 2px solid var(--orange);

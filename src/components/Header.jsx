@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Nav from "./Nav";
+import LogoutNav from "./LogoutNav";
 import headerLogo from "../images/logo.png";
 
-export default function Header({ userData, isLoggedIn, loginState }) {
+export default function Header({ userInfo }) {
+  const location = useLocation();
+
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
@@ -38,68 +42,13 @@ export default function Header({ userData, isLoggedIn, loginState }) {
           </Link>
         </div>
 
-        <nav className='navbar navbar-expand-lg bg-body-light'>
-          <div className='container-fluid'>
-            <div className='collapse navbar-collapse' id='navbarNav'>
-              <ul
-                className='navbar-nav'
-                style={{ display: "flex", justifyContent: "space-between" }}
-              >
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#hero'>
-                    Home
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#features'>
-                    Features
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/#about'>
-                    About
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-        {/* {isLoggedIn && (
-          <>
-            <h2>
-              {userData.role_id === 10
-                ? "My Requests"
-                : userData.role_id === 20
-                ? "User Requests"
-                : "Asset Management"}
-            </h2>
-            <div className='userAction d-flex justify-content-around'>
-              <div className='userIdentity d-flex align-items-center px-1'>
-                <span
-                  className={`badge text-bg-${
-                    userData.role_id === 10
-                      ? "primary"
-                      : userData.role_id === 20
-                      ? "success"
-                      : "warning"
-                  } py-2`}
-                >
-                  {userData.email}
-                </span>
-              </div>
-              <div className='logout d-flex align-items-center justify-center'>
-                <button
-                  type='button'
-                  onClick={loginState}
-                  className='btn btn-outline-danger btn-sm'
-                >
-                  <i className='fa-solid fa-right-from-bracket'></i>
-                </button>
-              </div>
-            </div>
-          </>
-        )} */}
+        {location.pathname === "/" ? (
+          <Nav />
+        ) : location.pathname === "/login" ? (
+          ""
+        ) : (
+          <LogoutNav userInfo={userInfo} />
+        )}
       </div>
     </header>
   );

@@ -1,6 +1,11 @@
 import Requisition from "./Requisition";
 
 const Requisitions = ({ userData, requisitions }) => {
+  // Get only those requisitions belonging to authenticated user
+  const userRequisitions = requisitions.filter((requisition) => {
+    return requisition.user.id === userData.res.data.id;
+  });
+
   return (
     <>
       <table className='table table-sm table-striped table-hover table-bordered'>
@@ -15,7 +20,7 @@ const Requisitions = ({ userData, requisitions }) => {
           </tr>
         </thead>
         <tbody>
-          {requisitions.map((requisition) => {
+          {userRequisitions.map((requisition) => {
             return (
               <Requisition key={requisition.id} requisition={requisition} />
             );
