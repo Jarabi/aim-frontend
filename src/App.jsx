@@ -32,7 +32,6 @@ const App = () => {
   return (
     <>
       <Header userInfo={userInfo} />
-      <NewUser />
       <Routes>
         <Route path='/' element={<>{!isLoggedIn && <LandingPage />}</>} />
         <Route path='/login' element={<Login setUserInfo={setUserInfo} />} />
