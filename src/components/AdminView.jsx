@@ -32,11 +32,11 @@ export default function AdminView({ userData }) {
           <div className='row'>
             <div className='col-md-12 fw-bold fs-3'>Dashboard</div>
             <div className='row'>
-              <div className='col-md-4 mb-3'>
+              <div className='col-md-3 mb-3'>
                 <div className='card text-bg-primary h-100'>
                   <div className='card-header fw-bold'>USER REQUISITIONS</div>
                   <div className='card-body'>
-                    <h5 className='card-title'>Primary card title</h5>
+                    <h5 className='card-title'>Requisitions Approvals</h5>
                     <p className='card-text'>
                       View and manage user requisitions.
                     </p>
@@ -47,11 +47,11 @@ export default function AdminView({ userData }) {
                 </div>
               </div>
 
-              <div className='col-md-4 mb-3'>
+              <div className='col-md-3 mb-3'>
                 <div className='card text-bg-warning h-100'>
                   <div className='card-header fw-bold'>ASSETS</div>
                   <div className='card-body'>
-                    <h5 className='card-title'>Primary card title</h5>
+                    <h5 className='card-title'>Asset Issuance</h5>
                     <p className='card-text'>Manage and track assets.</p>
                     <Link href='#' class='btn btn-warning'>
                       Go to Assets
@@ -59,14 +59,26 @@ export default function AdminView({ userData }) {
                   </div>
                 </div>
               </div>
-              <div className='col-md-4 mb-3'>
-                <div className='card text-bg-success h-100'>
+              <div className='col-md-3 mb-3'>
+                <div className='card text-bg-info h-100'>
                   <div className='card-header fw-bold'>USERS</div>
                   <div className='card-body'>
-                    <h5 className='card-title'>Primary card title</h5>
+                    <h5 className='card-title'>User Management</h5>
                     <p className='card-text'>View and manager user accounts.</p>
-                    <Link href='#' class='btn btn-success'>
+                    <Link href='/viewUsers' class='btn btn-info'>
                       Go to Users
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className='col-md-3 mb-3'>
+                <div className='card text-bg-danger h-100'>
+                  <div className='card-header fw-bold'>REPORTS</div>
+                  <div className='card-body'>
+                    <h5 className='card-title'>Detailed Reports</h5>
+                    <p className='card-text'>Generate and view reports</p>
+                    <Link href='#' class='btn btn-danger'>
+                      Go to Reports
                     </Link>
                   </div>
                 </div>

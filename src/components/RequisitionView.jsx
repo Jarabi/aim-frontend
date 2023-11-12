@@ -18,7 +18,7 @@ const RequisitionView = () => {
 
   return (
     <div className='container user-page'>
-      <h5 className='requisition-view text-center'>View Requisition</h5>
+      <h5 className='form-header text-center'>View Requisition</h5>
       <table className='table'>
         <tbody>
           <tr>

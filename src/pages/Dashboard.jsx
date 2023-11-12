@@ -26,7 +26,6 @@ export default function Dashboard() {
 
   return (
     <div className='container dashboard'>
-      <AdminView />
       {/* {userRole === "regular" && <UserView userData={userData} />}
       {userRole === "approver" && <ManagerView />}
       {userRole === "admin" && <AdminView userData={userData} />} */}

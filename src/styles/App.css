@@ -149,9 +149,21 @@ section#features .feature-illustration {
   font-size: 12px;
 }
 
-/* ++++++++ REQUISITIONS ++++++++++++++++ */
-.user-view,
-.requisition-view {
+.user-form {
+  margin-top: 90px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #eee;
+}
+
+.user-form label {
+  font-weight: bold;
+}
+
+/* ++++++++ FORMS ++++++++++++++++ */
+
+.form-header {
   color: var(--off-white);
   background-color: var(--charcoal);
   border-bottom: 2px solid var(--orange);

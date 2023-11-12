@@ -20,7 +20,7 @@ const NewRequisition = () => {
   return (
     <div className='container user-page'>
       <form className='border rounded p-3' onSubmit={submitHandler}>
-        <h5 className='requisitions-view text-center'>New Requisition</h5>
+        <h5 className='form-header text-center'>New Requisition</h5>
 
         <div className='mb-3'>
           <label htmlFor='req-title' className='form-label'>

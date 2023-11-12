@@ -9,6 +9,9 @@ import Login from "./components/Login";
 import Footer from "./components/Footer";
 import RequisitionView from "./components/RequisitionView";
 import NewRequisition from "./components/NewRequisition";
+import ViewUser from "./components/ViewUser";
+import ViewUsers from "./components/ViewUsers";
+import NewUser from "./components/NewUser";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,12 +32,16 @@ const App = () => {
   return (
     <>
       <Header userInfo={userInfo} />
+      <NewUser />
       <Routes>
         <Route path='/' element={<>{!isLoggedIn && <LandingPage />}</>} />
         <Route path='/login' element={<Login setUserInfo={setUserInfo} />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/requisitionView' element={<RequisitionView />} />
         <Route path='/newRequisition' element={<NewRequisition />} />
+        <Route path='/viewUsers' element={<ViewUsers />} />
+        <Route path='/viewUser' element={<ViewUser />} />
+        <Route path='/newUser' element={<NewUser />} />
       </Routes>
       <Footer />
     </>
