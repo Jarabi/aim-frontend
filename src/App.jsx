@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AUTH_TOKEN } from "./api/constants";
 import "../src/styles/App.css";
 import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import Login from "./components/Login";
-import UserView from "./components/UserView";
 import Footer from "./components/Footer";
 import RequisitionView from "./components/RequisitionView";
-import { AUTH_TOKEN } from "./api/constants";
+import NewRequisition from "./components/NewRequisition";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [requisitions, setRequisitions] = useState([]);
-  const [userData, setUserData] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
 
   const checkLoggedInStatus = async () => {
-    const token = await localStorage.getItem(AUTH_TOKEN);
+    const token = localStorage.getItem(AUTH_TOKEN);
     if (!token) {
       setIsLoggedIn(false);
     } else {
@@ -29,15 +28,13 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header userInfo={userInfo} />
       <Routes>
-        <Route path="/" element={<>{!isLoggedIn && <LandingPage />}</>} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/user"
-          element={<UserView userData={userData} requisitions={requisitions} />}
-        />
-        <Route path="/requisitionView" element={<RequisitionView />} />
+        <Route path='/' element={<>{!isLoggedIn && <LandingPage />}</>} />
+        <Route path='/login' element={<Login setUserInfo={setUserInfo} />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/requisitionView' element={<RequisitionView />} />
+        <Route path='/newRequisition' element={<NewRequisition />} />
       </Routes>
       <Footer />
     </>

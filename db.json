@@ -9,7 +9,7 @@
       "createdAt": "22-08-2023",
       "staffId": "01HE3TCZE7HMGM2QR4V2YTFMSA",
       "deparment_id": 1,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "createdAt": "23-10-2023",
       "staffId": "01HE3TCZE8PYYA1VMC4HPE0KQ9",
       "deparment_id": 2,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "createdAt": "25-01-2023",
       "staffId": "01HE3TCZE97EMJH6AKV2PBGBN8",
       "deparment_id": 3,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "createdAt": "11-10-2023",
       "staffId": "01HE3TCZEAKS1QEFVREP6YBT05",
       "deparment_id": 1,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "createdAt": "27-05-2023",
       "staffId": "01HE3TCZEAT8R7F8GS95F55DP8",
       "deparment_id": 2,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "createdAt": "27-06-2023",
       "staffId": "01HE3TCZECN7NEESQZ01CAKS0Z",
       "deparment_id": 3,
-      "role_id": 10
+      "role": { "id": 10, "name": "regular" }
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "createdAt": "04-07-2023",
       "staffId": "01HE3TCZEDCPE4WVXEZMFSVDGV",
       "deparment_id": 1,
-      "role_id": 20
+      "role": { "id": 20, "name": "approver" }
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "createdAt": "21-03-2023",
       "staffId": "01HE3TCZEE24FZB8PWMMJGW6BJ",
       "deparment_id": 2,
-      "role_id": 20
+      "role": { "id": 20, "name": "approver" }
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "createdAt": "04-07-2023",
       "staffId": "01HE3TCZEE09QJGABJRREW264Y",
       "deparment_id": 3,
-      "role_id": 20
+      "role": { "id": 20, "name": "approver" }
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "createdAt": "08-11-2022",
       "staffId": "01HE3TCZEF48RX31E6XBS0VXQG",
       "deparment_id": 4,
-      "role_id": 100
+      "role": { "id": 100, "name": "admin" }
     }
   ],
   "departments": [
@@ -132,12 +132,12 @@
   "roles": [
     {
       "id": 10,
-      "name": "user",
+      "name": "regular",
       "description": "Regular user with minimal privileges. Can only create and view own requests."
     },
     {
       "id": 20,
-      "name": "manager",
+      "name": "approver",
       "description": "Supervisory role. Can create and view requests only for users in own department."
     },
     {
@@ -151,7 +151,7 @@
       "id": "1",
       "title": "New laptop",
       "justification": "Current laptop is worn out",
-      "status": "Approved",
+      "status": "Declined",
       "approvedAt": "2023-11-08T07:33:00.000Z",
       "createdAt": "2023-11-08T07:29:44.000Z",
       "fulfilledAt": "2023-11-08T07:39:43.000Z",
@@ -160,21 +160,21 @@
       "userId": "1"
     },
     {
-      "id": "1",
-      "title": "New laptop",
-      "justification": "Current laptop is worn out",
-      "status": "Approved",
+      "id": "2",
+      "title": "Mouse replacement",
+      "justification": "My mouse is not working",
+      "status": "Pending Approval",
       "approvedAt": "2023-11-08T07:33:00.000Z",
       "createdAt": "2023-11-08T07:29:44.000Z",
-      "fulfilledAt": "2023-11-08T07:39:43.000Z",
-      "approvedBy": "John Mwangi",
+      "fulfilledAt": "",
+      "approvedBy": "",
       "fulfilledBy": "7859b91a-2c73-49a9-8b5e-162e6d378347",
-      "userId": "1"
+      "userId": "2"
     },
     {
-      "id": "1",
-      "title": "New laptop",
-      "justification": "Current laptop is worn out",
+      "id": "3",
+      "title": "Faulty monitor",
+      "justification": "I need a new monitor. Current one is not showing clearly",
       "status": "Approved",
       "approvedAt": "2023-11-08T07:33:00.000Z",
       "createdAt": "2023-11-08T07:29:44.000Z",
