@@ -4,7 +4,7 @@ import headerLogo from "../images/logo.png";
 import authApi from "../api/auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setUserInfo }) => {
+export default function Login({ setUserInfo }) {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
@@ -20,7 +20,7 @@ const Login = ({ setUserInfo }) => {
     if (response.status === 201) {
       setUserInfo({ ...response.data });
       navigate("/dashboard", {
-        state: { id: response.data.id, email: response.data.email },
+        state: { userInfo: response.data },
       });
     }
   };
@@ -48,7 +48,6 @@ const Login = ({ setUserInfo }) => {
                   className='form-control'
                   id='email'
                   name='email'
-                  value={credentials.email}
                   placeholder='Email'
                   onChange={changeHandler}
                   autoFocus
@@ -70,7 +69,6 @@ const Login = ({ setUserInfo }) => {
                   className='form-control'
                   id='password'
                   name='password'
-                  value={credentials.password}
                   placeholder='Password'
                   onChange={changeHandler}
                 />
@@ -90,6 +88,4 @@ const Login = ({ setUserInfo }) => {
       </div>
     </div>
   );
-};
-
-export default Login;
+}

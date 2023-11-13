@@ -13,7 +13,7 @@ export default function NewUser() {
 
   const handleChange = (e) => {
     setFormData({
-      ...form,
+      ...formData,
       [e.target.name]: e.target.value,
     });
   };

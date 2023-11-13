@@ -12,8 +12,9 @@ import NewRequisition from "./components/NewRequisition";
 import ViewUser from "./components/ViewUser";
 import ViewUsers from "./components/ViewUsers";
 import NewUser from "./components/NewUser";
+import NewAsset from "./components/NewAsset";
 
-const App = () => {
+function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <>
       <Header userInfo={userInfo} />
+      <NewAsset />
       <Routes>
         <Route path='/' element={<>{!isLoggedIn && <LandingPage />}</>} />
         <Route path='/login' element={<Login setUserInfo={setUserInfo} />} />
@@ -41,10 +43,11 @@ const App = () => {
         <Route path='/viewUsers' element={<ViewUsers />} />
         <Route path='/viewUser' element={<ViewUser />} />
         <Route path='/newUser' element={<NewUser />} />
+        <Route path='/newAsset' element={<NewAsset />} />
       </Routes>
       <Footer />
     </>
   );
-};
+}
 
 export default App;
