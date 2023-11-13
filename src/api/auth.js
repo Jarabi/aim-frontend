@@ -13,12 +13,12 @@ const loginUser = async (credentials) => {
     }
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -30,7 +30,7 @@ const logUserOut = () => {
 
 const authApi = {
   loginUser,
-  logUserOut
+  logUserOut,
 };
 
 export default authApi;

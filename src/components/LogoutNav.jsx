@@ -15,32 +15,29 @@ const LogoutNav = () => {
 
   useEffect(() => {
     const user = localStorage.getItem(CURRENT_USER);
-    setUserInfo(user);
+    setUserInfo(JSON.parse(user));
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-light">
-      <div className="container-fluid">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item dropdown">
+    <nav className='navbar navbar-expand-lg bg-body-light'>
+      <div className='container-fluid'>
+        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+            <li className='nav-item dropdown'>
               <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                className='nav-link dropdown-toggle'
+                href='#'
+                role='button'
+                data-bs-toggle='dropdown'
+                aria-expanded='false'
               >
-                {userInfo.email !== undefined && (
-                  <span className="badge text-bg-primary">
-                    {userInfo.email}
-                  </span>
-                )}
-                <FaUser className="ms-3" />
+                <span className='badge text-bg-primary'>{userInfo.email}</span>
+
+                <FaUser className='ms-3' />
               </a>
-              <ul className="dropdown-menu dropdown-menu-end">
+              <ul className='dropdown-menu dropdown-menu-end'>
                 <li>
-                  <div className="btn dropdown-item" onClick={logoutHandler}>
+                  <div className='btn dropdown-item' onClick={logoutHandler}>
                     Logout
                   </div>
                 </li>
