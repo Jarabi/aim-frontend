@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import usersApi from "../api/users";
 import AdminView from "../components/AdminView";
 import UserView from "../components/UserView";
 import ManagerView from "../components/ManagerView";
 import LoadingTable from "../components/LoadingTable";
+import { CURRENT_USER } from "../api/constants";
 
 export default function Dashboard() {
-  const location = useLocation();
-  const data = location.state;
-  // const userId = data.userId.id;
-
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await usersApi.fetchOneById(userId);
-      setUserData(response);
+      const user = JSON.parse(localStorage.getItem(CURRENT_USER));
+      setUserData(user);
       setLoading(false);
     };
 
@@ -25,22 +20,22 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className='container dashboard'>
-      {/* {loading ? (
+    <div className="container dashboard">
+      {loading ? (
         <LoadingTable />
       ) : (
         <>
-          {userData.data.role.name === "regular" && (
+          {userData && userData.role.name === "regular" && (
             <UserView userData={userData} />
           )}
-          {userData.data.role.name === "approver" && (
+          {userData && userData.role.name === "approver" && (
             <ManagerView userData={userData} />
           )}
-          {userData.data.role.name === "admin" && (
+          {userData && userData.role.name === "admin" && (
             <AdminView userData={userData} />
           )}
         </>
-      )} */}
+      )}
     </div>
   );
 }

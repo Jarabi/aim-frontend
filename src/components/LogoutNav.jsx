@@ -1,48 +1,48 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import authApi from "../api/auth";
 import { FaUser } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { CURRENT_USER } from "../api/constants";
 
-const LogoutNav = ({ userInfo }) => {
+const LogoutNav = () => {
+  const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
 
   const logoutHandler = () => {
     authApi.logUserOut();
-    navigate("/");
+    navigate("/login");
   };
 
+  useEffect(() => {
+    const user = localStorage.getItem(CURRENT_USER);
+    setUserInfo(user);
+  }, []);
+
   return (
-    <nav className='navbar navbar-expand-lg bg-body-light'>
-      <div className='container-fluid'>
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-            <li className='nav-item dropdown'>
+    <nav className="navbar navbar-expand-lg bg-body-light">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item dropdown">
               <a
-                className='nav-link dropdown-toggle'
-                href='#'
-                role='button'
-                data-bs-toggle='dropdown'
-                aria-expanded='false'
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                <span className='badge text-bg-primary'>{userInfo.email}</span>
-                <FaUser className='ms-3' />
+                {userInfo.email !== undefined && (
+                  <span className="badge text-bg-primary">
+                    {userInfo.email}
+                  </span>
+                )}
+                <FaUser className="ms-3" />
               </a>
-              <ul className='dropdown-menu dropdown-menu-end'>
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <Link className='dropdown-item' to='#' state={userInfo}>
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-                <li>
-                  <Link
-                    className='btn dropdown-item'
-                    href='#'
-                    onClick={logoutHandler}
-                  >
+                  <div className="btn dropdown-item" onClick={logoutHandler}>
                     Logout
-                  </Link>
+                  </div>
                 </li>
               </ul>
             </li>

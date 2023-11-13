@@ -1,11 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import LogoutNav from "./LogoutNav";
 import headerLogo from "../images/logo.png";
+import { useAuth } from "../hooks/useAuth";
 
-export default function Header({ userInfo }) {
-  const location = useLocation();
-
+export default function Header() {
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
@@ -23,9 +22,10 @@ export default function Header({ userInfo }) {
     }
   };
 
+  const { isLoggedIn } = useAuth();
   return (
-    <header className='d-flex'>
-      <div className='container d-flex justify-content-between'>
+    <header className="d-flex">
+      <div className="container d-flex justify-content-between">
         {/* <Link
           className='navbarToggler d-flex align-items-center me-2'
           data-bs-toggle='offcanvas'
@@ -43,29 +43,23 @@ export default function Header({ userInfo }) {
             }}
           ></i>
         </Link> */}
-        <div className='header-logo d-flex me-auto'>
+        <div className="header-logo d-flex me-auto">
           <Link
-            className='d-flex flex-row align-items-center'
-            to='/'
+            className="d-flex flex-row align-items-center"
+            to="/"
             style={{ color: "#2f2d2e", textDecoration: "none" }}
           >
             <img
-              className='header-img border rounded p-1'
+              className="header-img border rounded p-1"
               src={headerLogo}
-              alt='Header Logo'
+              alt="Header Logo"
               style={{ width: "57px" }}
             />
-            <h2 className='header-title mb-0 ps-1'>inventorypro</h2>
+            <h2 className="header-title mb-0 ps-1">inventorypro</h2>
           </Link>
         </div>
 
-        {location.pathname === "/" ? (
-          <Nav />
-        ) : location.pathname === "/login" ? (
-          ""
-        ) : (
-          <LogoutNav userInfo={userInfo} />
-        )}
+        {isLoggedIn() ? <LogoutNav /> : <Nav />}
       </div>
     </header>
   );

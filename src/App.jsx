@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { AUTH_TOKEN } from "./api/constants";
 import "../src/styles/App.css";
 import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
@@ -14,37 +12,27 @@ import ViewUsers from "./components/ViewUsers";
 import NewUser from "./components/NewUser";
 import NewAsset from "./components/NewAsset";
 import ViewAssets from "./components/ViewAssets";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Requisitions from "./components/Requisitions";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
-
-  const checkLoggedInStatus = async () => {
-    const token = localStorage.getItem(AUTH_TOKEN);
-    if (!token) {
-      setIsLoggedIn(false);
-    } else {
-      setIsLoggedIn(true);
-    }
-  };
-  useEffect(() => {
-    checkLoggedInStatus();
-  }, []);
-
   return (
     <>
-      <Header userInfo={userInfo} />
+      <Header />
       <Routes>
-        <Route path='/' element={<>{!isLoggedIn && <LandingPage />}</>} />
-        <Route path='/login' element={<Login setUserInfo={setUserInfo} />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/requisitionView' element={<RequisitionView />} />
-        <Route path='/newRequisition' element={<NewRequisition />} />
-        <Route path='/viewUsers' element={<ViewUsers />} />
-        <Route path='/viewUser' element={<ViewUser />} />
-        <Route path='/newUser' element={<NewUser />} />
-        <Route path='/newAsset' element={<NewAsset />} />
-        <Route path='/viewAssets' element={<ViewAssets />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/requisitionView" element={<RequisitionView />} />
+          <Route path="/newRequisition" element={<NewRequisition />} />
+          <Route path="/viewUsers" element={<ViewUsers />} />
+          <Route path="/viewUser" element={<ViewUser />} />
+          <Route path="/newUser" element={<NewUser />} />
+          <Route path="/newAsset" element={<NewAsset />} />
+          <Route path="/viewAssets" element={<ViewAssets />} />
+          <Route path="/requisitions" element={<Requisitions />} />
+        </Route>
       </Routes>
       <Footer />
     </>

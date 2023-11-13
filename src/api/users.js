@@ -1,4 +1,5 @@
 import client from "./client";
+import { CURRENT_USER } from "./constants";
 
 /**
  *
@@ -18,12 +19,12 @@ const createUser = async (userData) => {
     const response = await client.post("/users", userData);
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -33,12 +34,12 @@ const fetchAll = async () => {
     const response = await client.get("/users");
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -52,20 +53,26 @@ const fetchOneById = async (id) => {
     const response = await client.get(`/users/${id}`);
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
+};
+
+const fetchLocalUser = () => {
+  const user = JSON.parse(localStorage.getItem(CURRENT_USER));
+  return user;
 };
 
 const usersApi = {
   createUser,
   fetchAll,
-  fetchOneById
+  fetchOneById,
+  fetchLocalUser,
 };
 
 export default usersApi;

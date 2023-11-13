@@ -1,5 +1,5 @@
 import client from "./client";
-import { AUTH_TOKEN } from "./constants";
+import { AUTH_TOKEN, CURRENT_USER } from "./constants";
 
 /**
  *
@@ -25,6 +25,7 @@ const loginUser = async (credentials) => {
 
 const logUserOut = () => {
   localStorage.removeItem(AUTH_TOKEN);
+  localStorage.removeItem(CURRENT_USER);
 };
 
 const authApi = {
