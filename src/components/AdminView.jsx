@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import requisitionsApi from "../api/requisitions";
+import usersApi from "../api/users";
 import LoadingTable from "./LoadingTable";
 
 export default function AdminView() {
   //TODO: populate approved requisitions table using the below requisitions variable
   const [requisitions, setRequisitions] = useState([]);
+  const [approvers, setApprovers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,7 +20,21 @@ export default function AdminView() {
         setLoading(false);
       }
     };
+
+    const fetchApprovers = async () => {
+      const response = await usersApi.fetchAll();
+      if (response.status === 200) {
+        setApprovers(
+          response.data.filter(
+            (user) =>
+              user.role.name === "admin" || user.role.name === "approver"
+          )
+        );
+      }
+    };
+
     loadApprovedRequisitions();
+    fetchApprovers();
   }, []);
 
   return (
@@ -36,7 +52,7 @@ export default function AdminView() {
                     <p className='card-text'>
                       View and manage user requisitions.
                     </p>
-                    <Link to='/requisitions' class='btn btn-primary'>
+                    <Link to='/requisitions' className='btn btn-primary'>
                       Go to User Requisitions
                     </Link>
                   </div>
@@ -49,7 +65,7 @@ export default function AdminView() {
                   <div className='card-body'>
                     <h5 className='card-title'>Asset Issuance</h5>
                     <p className='card-text'>Manage and track assets.</p>
-                    <Link to='/viewAssets' class='btn btn-warning'>
+                    <Link to='/viewAssets' className='btn btn-warning'>
                       Go to Assets
                     </Link>
                   </div>
@@ -61,7 +77,7 @@ export default function AdminView() {
                   <div className='card-body'>
                     <h5 className='card-title'>User Management</h5>
                     <p className='card-text'>View and manager user accounts.</p>
-                    <Link to='/viewUsers' class='btn btn-info'>
+                    <Link to='/viewUsers' className='btn btn-info'>
                       Go to Users
                     </Link>
                   </div>
@@ -73,7 +89,7 @@ export default function AdminView() {
                   <div className='card-body'>
                     <h5 className='card-title'>Detailed Reports</h5>
                     <p className='card-text'>Generate and view reports</p>
-                    <Link to='#' class='btn btn-danger'>
+                    <Link to='#' className='btn btn-danger'>
                       Go to Reports
                     </Link>
                   </div>
@@ -97,22 +113,41 @@ export default function AdminView() {
                     <th scope='row'>STATUS</th>
                     <th scope='row'>APPROVER</th>
                     <th scope='row'>DATE APPROVED</th>
-                    <th scope='row'>FULFILLED BY</th>
-                    <th scope='row'>DATE FULFILLED</th>
+                    <th scope='row'>ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td scope='row'>REQUESTER</td>
-                    <td scope='row'>DATE REQUESTED</td>
-                    <td scope='row'>TITLE</td>
-                    <td scope='row'>JUSTIFICATION</td>
-                    <td scope='row'>STATUS</td>
-                    <td scope='row'>APPROVER</td>
-                    <td scope='row'>DATE APPROVED</td>
-                    <td scope='row'>FULFILLED BY</td>
-                    <td scope='row'>DATE FULFILLED</td>
-                  </tr>
+                  {requisitions.map((item) => {
+                    const requester = `${item.user.firstName} ${item.user.lastName}`;
+                    const approver = approvers.find(
+                      (approver) => approver.id === item.approvedBy
+                    );
+                    return (
+                      <tr key={item.id}>
+                        <td>{requester}</td>
+                        <td>{item.createdAt}</td>
+                        <td>{item.title}</td>
+                        <td>{item.justification}</td>
+                        <td>{item.status}</td>
+                        <td>
+                          {approver &&
+                            `${approver.firstName} ${approver.lastName}`}
+                        </td>
+                        <td>{item.approvedAt}</td>
+                        <td>
+                          <Link
+                            type='button'
+                            className='btn btn-outline-success btn-sm'
+                            id='reviewRequisition'
+                            to='/reviewRequisition'
+                            state={item}
+                          >
+                            Review
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             ) : (
