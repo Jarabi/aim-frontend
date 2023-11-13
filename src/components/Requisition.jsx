@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const Requisition = ({ requisition }) => {

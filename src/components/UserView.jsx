@@ -1,22 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Requisitions from "./Requisitions";
 import usersApi from "../api/users";
-// import NewRequest from "../components/NewRequest";
+import MyRequisitions from './MyRequisitions';
 
 const UserView = () => {
-  const [requisitions, setRequisitions] = useState([]);
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const getRequisitions = async () => {
+    const fetchUserDetails = async () => {
       const user = usersApi.fetchLocalUser();
       setUserData(user);
-      console.log(" ==== USER_ REQUISITIONS ===", user.requisitions);
-      setRequisitions(user.requisitions);
     };
 
-    getRequisitions();
+    fetchUserDetails();
   }, []);
 
   return (
@@ -52,13 +48,7 @@ const UserView = () => {
         </div>
       </div>
       <h5 className="form-header text-center">User Requisitions</h5>
-      {requisitions && requisitions.length > 0 ? (
-        <Requisitions requisitions={requisitions} />
-      ) : (
-        <div className="alert alert-info text-center" role="alert">
-          No Requisitions Yet.
-        </div>
-      )}
+        <MyRequisitions />
     </div>
   );
 };
