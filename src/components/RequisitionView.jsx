@@ -13,8 +13,6 @@ const RequisitionView = (props) => {
     setUser(user);
   }, []);
 
-  console.log(location);
-
   return (
     <div className='container user-page'>
       <h5 className='form-header text-center'>View Requisition</h5>
