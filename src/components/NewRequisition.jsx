@@ -1,67 +1,92 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import requisitionsApi from "../api/requisitions";
+import usersApi from "../api/users";
 
-const NewRequisition = () => {
-  const location = useLocation();
+function NewRequisition() {
   const navigate = useNavigate();
-  const userData = location.state;
-  const userId = userData.res.data.id;
+  const [formData, setFormData] = useState({
+    title: "",
+    justification: "",
+    userId: "",
+  });
 
-  const [title, setTitle] = useState("");
-  const [justification, setJustification] = useState("");
+  // useEffect(() => {
+  //   const { id } = usersApi.fetchLocalUser();
+  //   setFormData({
+  //     ...formData,
+  //     userId: id,
+  //   });
+  // }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // const res = await requisitionsApi.createRequisition()
+    const { id } = await usersApi.fetchLocalUser();
+
+    setFormData({
+      ...formData,
+      userId: id,
+    });
+
+    const res = await requisitionsApi.createRequisition(formData);
+    console.log(res);
   };
 
   return (
-    <div className='container user-page'>
+    <div className='container user-form'>
       <form className='border rounded p-3' onSubmit={submitHandler}>
         <h5 className='form-header text-center'>New Requisition</h5>
-
+        <p className='fs-6'>Provide requsition details</p>
+        <hr className='my-3' />
         <div className='mb-3'>
           <label htmlFor='req-title' className='form-label'>
-            Title
+            TITLE
           </label>
           <input
             type='text'
             className='form-control form-control-sm'
             id='title'
             name='title'
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
+            onChange={handleChange}
           />
           <div className='invalid-feedback'>Please provide a title.</div>
         </div>
 
         <div className='mb-3'>
           <label htmlFor='justification' className='form-label'>
-            Provide Justification for Requisition
+            JUSTIFICATION
           </label>
           <textarea
             className='form-control'
             id='justification'
+            name='justification'
             rows='3'
-            value={justification}
-            onChange={(e) => {
-              setJustification(e.target.value);
-            }}
+            onChange={handleChange}
           ></textarea>
         </div>
-        <button className='btn btn-secondary me-3' onClick={() => navigate(-1)}>
-          Cancel
-        </button>
-        <button className='btn btn-success' type='submit'>
-          SAVE
-        </button>
+        <hr className='my-3' />
+        <div className='cta'>
+          <button
+            className='btn btn-secondary me-3'
+            onClick={() => navigate(-1)}
+          >
+            Cancel
+          </button>
+          <button className='btn btn-success' type='submit'>
+            SAVE
+          </button>
+        </div>
       </form>
     </div>
   );
-};
+}
 
 export default NewRequisition;

@@ -20,7 +20,7 @@ export default function NewAsset() {
     e.preventDefault();
 
     const res = await assetsApi.createAsset(formData);
-    console.log(res);
+
     setFormData({
       ...formData,
       serialNumber: "",

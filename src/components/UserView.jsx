@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import usersApi from "../api/users";
-import MyRequisitions from './MyRequisitions';
+import MyRequisitions from "./MyRequisitions";
 
 const UserView = () => {
   const [userData, setUserData] = useState({});
@@ -16,17 +16,16 @@ const UserView = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="top-section d-flex justify-content-end mb-3">
+    <div className='container'>
+      <div className='top-section d-flex justify-content-end mb-3'>
         <Link
-          className="btn btn-outline-primary btn-sm"
-          id="new-request"
-          to="/newRequisition"
-          state={userData}
+          className='btn btn-outline-primary btn-sm'
+          to='/newRequisition'
+          // state={userData}
         >
           New Requisition
         </Link>
-        <div className="search d-flex align-items-end ms-3">
+        {/* <div className="search d-flex align-items-end ms-3">
           <div className="input-group input-group-sm search-box">
             <input
               type="text"
@@ -45,10 +44,10 @@ const UserView = () => {
               <i className="bi bi-search"></i>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
-      <h5 className="form-header text-center">User Requisitions</h5>
-        <MyRequisitions />
+      <h5 className='form-header text-center'>My Requisitions</h5>
+      <MyRequisitions />
     </div>
   );
 };
