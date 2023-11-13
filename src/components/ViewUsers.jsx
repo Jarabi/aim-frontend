@@ -4,7 +4,7 @@ import usersApi from "../api/users";
 import LoadingTable from "./LoadingTable";
 
 export default function ViewUsers() {
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,22 +15,23 @@ export default function ViewUsers() {
     };
     fetchUsers();
   }, []);
+
   return (
-    <div className='container user-form'>
-      <h5 className='form-header text-center'>Users</h5>
+    <div className="container user-form">
+      <h5 className="form-header text-center">Users</h5>
       {loading ? (
         <LoadingTable />
       ) : (
-        <table className='table table-hover user-list'>
+        <table className="table table-hover user-list">
           <thead>
             <tr>
-              <th scope='row'>FIRST NAME</th>
-              <th scope='row'>LAST NAME</th>
-              <th scope='row'>EMAIL</th>
-              <th scope='row'>STAFF ID</th>
-              <th scope='row'>ROLE</th>
-              <th scope='row'>DEPARTMENT</th>
-              <th scope='row' colSpan={2} className='text-center'>
+              <th scope="row">FIRST NAME</th>
+              <th scope="row">LAST NAME</th>
+              <th scope="row">EMAIL</th>
+              <th scope="row">STAFF ID</th>
+              <th scope="row">ROLE</th>
+              <th scope="row">DEPARTMENT</th>
+              <th scope="row" colSpan={2} className="text-center">
                 ACTION
               </th>
             </tr>
@@ -45,23 +46,23 @@ export default function ViewUsers() {
                   <td>{user.staffId}</td>
                   <td>{user.role.name}</td>
                   <td>{user.department.name}</td>
-                  <td className='text-end'>
+                  <td className="text-end">
                     <Link
-                      to='/viewUser'
+                      to="/viewUser"
                       state={user}
                       style={{
-                        textDecoration: "none",
+                        textDecoration: "none"
                       }}
                     >
                       EDIT
                     </Link>
                   </td>
-                  <td className='text-start'>
+                  <td className="text-start">
                     <Link
-                      to='#'
+                      to="#"
                       state={user}
                       style={{
-                        textDecoration: "none",
+                        textDecoration: "none"
                       }}
                     >
                       DELETE

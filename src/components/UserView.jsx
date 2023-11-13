@@ -1,68 +1,54 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import requisitionsApi from "../api/requisitions";
-import Requisitions from "./Requisitions";
-// import NewRequest from "../components/NewRequest";
+import usersApi from "../api/users";
+import MyRequisitions from './MyRequisitions';
 
-const UserView = ({ userData }) => {
-  const [showNewRequest, setShowNewRequest] = useState(false);
-  const [requisitions, setRequisitions] = useState([]);
+const UserView = () => {
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const getRequisitions = async () => {
-      const reqData = await fetchRequisitions();
-      setRequisitions(reqData);
+    const fetchUserDetails = async () => {
+      const user = usersApi.fetchLocalUser();
+      setUserData(user);
     };
 
-    getRequisitions();
+    fetchUserDetails();
   }, []);
 
-  const fetchRequisitions = async () => {
-    const response = await requisitionsApi.fetchAll();
-
-    return response;
-  };
-
   return (
-    <div className='container'>
-      <div className='top-section d-flex justify-content-end mb-3'>
+    <div className="container">
+      <div className="top-section d-flex justify-content-end mb-3">
         <Link
-          className='btn btn-outline-primary btn-sm'
-          id='new-request'
-          to='/newRequisition'
+          className="btn btn-outline-primary btn-sm"
+          id="new-request"
+          to="/newRequisition"
           state={userData}
         >
           New Requisition
         </Link>
-        <div className='search d-flex align-items-end ms-3'>
-          <div className='input-group input-group-sm search-box'>
+        <div className="search d-flex align-items-end ms-3">
+          <div className="input-group input-group-sm search-box">
             <input
-              type='text'
-              id='search'
-              name='search'
-              className='form-control search-requisition'
-              placeholder='Search'
-              aria-label='search'
-              aria-describedby='search'
+              type="text"
+              id="search"
+              name="search"
+              className="form-control search-requisition"
+              placeholder="Search"
+              aria-label="search"
+              aria-describedby="search"
             />
             <button
-              className='btn btn-outline-secondary'
-              type='button'
-              id='search'
+              className="btn btn-outline-secondary"
+              type="button"
+              id="search"
             >
-              <i className='bi bi-search'></i>
+              <i className="bi bi-search"></i>
             </button>
           </div>
         </div>
       </div>
-      <h5 className='form-header text-center'>User Requisitions</h5>
-      {requisitions.data && requisitions.data.length > 0 ? (
-        <Requisitions userData={userData} requisitions={requisitions.data} />
-      ) : (
-        <div className='alert alert-info text-center' role='alert'>
-          No Requisitions Yet.
-        </div>
-      )}
+      <h5 className="form-header text-center">User Requisitions</h5>
+        <MyRequisitions />
     </div>
   );
 };

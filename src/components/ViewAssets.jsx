@@ -4,7 +4,7 @@ import assetsApi from "../api/assets";
 import LoadingTable from "./LoadingTable";
 
 export default function ViewAssets() {
-  const [assets, setAssets] = useState(null);
+  const [assets, setAssets] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,26 +16,24 @@ export default function ViewAssets() {
     fetchAssets();
   }, []);
 
-  console.log(assets.data);
-
   return (
-    <div className='container user-form'>
-      <h5 className='form-header text-center'>Assets</h5>
+    <div className="container user-form">
+      <h5 className="form-header text-center">Assets</h5>
       {loading ? (
         <LoadingTable />
       ) : (
-        <table className='table table-hover asset-list'>
+        <table className="table table-hover asset-list">
           <thead>
             <tr>
-              <th scope='row'>SERIAL NUMBER</th>
-              <th scope='row'>ASSET NAME</th>
-              <th scope='row'>DESCRIPTION</th>
-              <th scope='row'>CONDITION</th>
-              <th scope='row'>DATE ENTERED</th>
-              <th scope='row'>LAST ISSUED</th>
-              <th scope='row'>ASSIGNED USER</th>
-              <th scope='row'>ISSUER</th>
-              <th scope='row' colSpan={2} className='text-center'>
+              <th scope="row">SERIAL NUMBER</th>
+              <th scope="row">ASSET NAME</th>
+              <th scope="row">DESCRIPTION</th>
+              <th scope="row">CONDITION</th>
+              <th scope="row">DATE ENTERED</th>
+              <th scope="row">LAST ISSUED</th>
+              <th scope="row">ASSIGNED USER</th>
+              <th scope="row">ISSUER</th>
+              <th scope="row" colSpan={2} className="text-center">
                 ACTION
               </th>
             </tr>
@@ -56,23 +54,23 @@ export default function ViewAssets() {
                       : `${asset.user.firstName} ${asset.user.lastName}`}
                   </td>
                   <td>{asset.issuedBy}</td>
-                  <td className='text-end'>
+                  <td className="text-end">
                     <Link
-                      to='/viewAsset'
+                      to="/viewAsset"
                       state={asset}
                       style={{
-                        textDecoration: "none",
+                        textDecoration: "none"
                       }}
                     >
                       EDIT
                     </Link>
                   </td>
-                  <td className='text-start'>
+                  <td className="text-start">
                     <Link
-                      to='#'
+                      to="#"
                       state={asset}
                       style={{
-                        textDecoration: "none",
+                        textDecoration: "none"
                       }}
                     >
                       DELETE

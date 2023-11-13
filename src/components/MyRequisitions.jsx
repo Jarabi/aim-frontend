@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 import Requisition from "./Requisition";
-import requisitionsApi from '../api/requisitions';
+import usersApi from '../api/users';
 
-const Requisitions = () => {
+const MyRequisitions = () => {
   const [ requisitions, setRequisitions ] = useState([] );
 
   useEffect( () => {
-    const loadAllRequisitions = async () => {
-      const response = await requisitionsApi.fetchAll();
+    const {id} = usersApi.fetchLocalUser()
+    const loadUserRequisitions = async () => {
+      const response = await usersApi.fetchOneById(id);
 
       if ( response.status === 200 ) {
-        setRequisitions( response.data );
+        setRequisitions( response.data.requisitions );
       }
     }
 
-    loadAllRequisitions();
+    loadUserRequisitions();
   },[])
 
   return (
-    <div className='container user-form'>
-      <h5 className="form-header text-center">All Requisitions</h5>
+    requisitions.length > 0? (<>
       <table className="table table-sm table-striped table-hover table-bordered">
         <thead>
           <tr>
@@ -39,8 +39,11 @@ const Requisitions = () => {
           })}
         </tbody>
       </table>
-    </div>
+    </>):(   <div className="alert alert-info text-center" role="alert">
+          No Requisitions Yet.
+        </div>)
+    
   );
 };
 
-export default Requisitions;
+export default MyRequisitions;
