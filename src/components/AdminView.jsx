@@ -1,32 +1,23 @@
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-export default function AdminView({ userData }) {
+import requisitionsApi from '../api/requisitions';
+
+
+export default function AdminView () {
+  //TODO: populate approved requisitions table using the below requisitions variable
+  const [ requisitions, setRequisitions ] = useState( [] );
+  
+  useEffect( () => {
+    const loadApprovedRequisitions = async () => {
+      const response = await requisitionsApi.fetchAll();
+      if ( response.status === 200 ) {
+        setRequisitions( response.data.filter( ( item => item.status === 'approved' ) ) );
+      }
+    }
+    loadApprovedRequisitions()
+  }, [])
   return (
     <div className="container">
-      {/* <div
-        className='offcanvas offcanvas-start show sidebar-nav bg-dark text-white'
-        data-bs-scroll='true'
-        data-bs-backdrop='false'
-        tabIndex='-1'
-        id='offcanvasScrolling'
-        aria-labelledby='offcanvasScrollingLabel'
-        style={{ width: "270px" }}
-      >
-        <div className='offcanvas-body p-0'>
-          <nav className='navbar-dark mt-3'>
-            <ul className='navbar-nav'>
-              <li>
-                <div className='nav-link px-3'>
-                  <span className='me-2'>
-                    <i className='bi bi-speedometer2'></i>
-                  </span>
-                  <span className='fs-6'>Dashboard</span>
-                </div>
-              </li>
-              <li className='my-4'></li>
-            </ul>
-          </nav>
-        </div>
-      </div> */}
       <main className="mt-5 pt-3">
         <div className="container-fluid">
           <div className="row">
