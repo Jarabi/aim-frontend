@@ -6,17 +6,20 @@ import { FaXTwitter } from "react-icons/fa6";
 const About = () => {
   return (
     <section
-      id='about'
+      id="about"
       style={{
         backgroundImage: `url(${AboutImg})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        height: "max-content",
+        paddingBottom: "30px",
+        paddingTop: "30px",
       }}
     >
-      <div className='container lh-lg'>
-        <h3 className='about-title text-center pt-5 mb-5'>
+      <div className="container lh-lg">
+        <h3 className="about-title text-center pt-5 mb-5">
           Welcome to our Asset Inventory Management System
         </h3>
         <p>
@@ -55,9 +58,9 @@ const About = () => {
         <p>
           This is the final project of Software Engineering Foundations at{" "}
           <Link
-            to='https://www.alxafrica.com/'
-            target='_blank'
-            rel='noopener noreferrer'
+            to="https://www.alxafrica.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "white" }}
           >
             ALX Africa
@@ -65,22 +68,22 @@ const About = () => {
           . It is a collaborative effort between Chris Ndung'u and Alex Jarabi.
         </p>
 
-        <p className='call-to-action'>
+        <p className="call-to-action">
           Ready to streamline your asset management and boost productivity?{" "}
-          <Link to='/login' style={{ color: "white" }}>
+          <Link to="/login" style={{ color: "white" }}>
             Get started now!
           </Link>
         </p>
 
-        <h4 className='project-repository mt-4'>Project Repository</h4>
+        <h4 className="project-repository mt-4">Project Repository</h4>
         <p>
           At the moment, this project is divided into two repositories for the{" "}
           <strong>
             <Link
-              to='https://github.com/Jarabi/aim-frontend'
-              target='_blank'
+              to="https://github.com/Jarabi/aim-frontend"
+              target="_blank"
               style={{ color: "white" }}
-              rel='noopener noreferrer'
+              rel="noopener noreferrer"
             >
               Frontend
             </Link>
@@ -88,10 +91,10 @@ const About = () => {
           and the{" "}
           <strong>
             <Link
-              to='https://github.com/devKiratu/aim-backend'
-              target='_blank'
+              to="https://github.com/devKiratu/aim-backend"
+              target="_blank"
               style={{ color: "white" }}
-              rel='noopener noreferrer'
+              rel="noopener noreferrer"
             >
               Backend
             </Link>
@@ -99,72 +102,72 @@ const About = () => {
           .
         </p>
 
-        <h4 className='text-center mt-5'>Meet The Contributors</h4>
-        <div className='contributors d-flex justify-content-evenly'>
-          <div className='contact'>
-            <h5 className='name'>Chris Ndung'u</h5>
-            <div className='socials d-flex justify-content-around'>
-              <div className='linkedIn'>
+        <h4 className="text-center mt-5">Meet The Contributors</h4>
+        <div className="contributors d-flex justify-content-evenly">
+          <div className="contact">
+            <h5 className="name">Chris Ndung'u</h5>
+            <div className="socials d-flex justify-content-around">
+              <div className="linkedIn">
                 <Link
-                  to='https://www.linkedin.com/'
-                  target='_blank'
+                  to="https://www.linkedin.com/in/ckiratu"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaLinkedinIn />
                 </Link>
               </div>
-              <div className='github'>
+              <div className="github">
                 <Link
-                  to='https://github.com/devKiratu'
-                  target='_blank'
+                  to="https://github.com/devKiratu"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaGithub />
                 </Link>
               </div>
-              <div className='twitter'>
+              <div className="twitter">
                 <Link
-                  to='https://twitter.com/home'
-                  target='_blank'
+                  to="https://twitter.com/0x43204e"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaXTwitter />
                 </Link>
               </div>
             </div>
           </div>
-          <div className='contact'>
-            <h5 className='name'>Alex Jarabi</h5>
-            <div className='socials d-flex justify-content-around'>
-              <div className='linkedIn'>
+          <div className="contact">
+            <h5 className="name">Alex Jarabi</h5>
+            <div className="socials d-flex justify-content-around">
+              <div className="linkedIn">
                 <Link
-                  to='https://www.linkedin.com/in/jarabialex'
-                  target='_blank'
+                  to="https://www.linkedin.com/in/jarabialex"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaLinkedinIn />
                 </Link>
               </div>
-              <div className='github'>
+              <div className="github">
                 <Link
-                  to='https://github.com/Jarabi'
-                  target='_blank'
+                  to="https://github.com/Jarabi"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaGithub />
                 </Link>
               </div>
-              <div className='twitter'>
+              <div className="twitter">
                 <Link
-                  to='https://twitter.com/jarabialex'
-                  target='_blank'
+                  to="https://twitter.com/jarabialex"
+                  target="_blank"
                   style={{ color: "white" }}
-                  rel='noopener noreferrer'
+                  rel="noopener noreferrer"
                 >
                   <FaXTwitter />
                 </Link>
