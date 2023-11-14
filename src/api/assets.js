@@ -16,12 +16,12 @@ const createAsset = async (asset) => {
     const response = await client.post("/assets", asset);
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -31,12 +31,12 @@ const fetchAll = async () => {
     const response = await client.get("/assets");
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -50,12 +50,31 @@ const fetchOneById = async (id) => {
     const response = await client.get(`/assets/${id}`);
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
+    };
+  }
+};
+
+/**
+ *
+ * @param {string} id
+ */
+const deleteAsset = async (id) => {
+  try {
+    const response = await client.delete(`/users/${id}`);
+    return {
+      status: response.status,
+      data: response.data,
+    };
+  } catch (error) {
+    return {
+      status: error.response.status,
+      data: error.response.data,
     };
   }
 };
@@ -76,12 +95,12 @@ const assignAsset = async (assignAssetDto) => {
     const response = await client.patch("/assets/assign", assignAssetDto);
     return {
       status: response.status,
-      data: response.data
+      data: response.data,
     };
   } catch (error) {
     return {
       status: error.response.status,
-      data: error.response.data
+      data: error.response.data,
     };
   }
 };
@@ -90,7 +109,8 @@ const assetsApi = {
   createAsset,
   fetchAll,
   fetchOneById,
-  assignAsset
+  deleteAsset,
+  assignAsset,
 };
 
 export default assetsApi;

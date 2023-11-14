@@ -17,6 +17,7 @@ import Requisitions from "./components/Requisitions";
 import MyRequisitions from "./components/MyRequisitions";
 import { useEffect, useState } from 'react';
 import { AUTH_TOKEN } from './api/constants';
+import ApproveRequisition from "./components/ApproveRequisition";
 
 function App () {
   const [ isLoggedIn, setIsLoggedIn ] = useState( false );
@@ -46,6 +47,7 @@ function App () {
           <Route path='/viewAssets' element={<ViewAssets />} />
           <Route path='/requisitions' element={<Requisitions />} />
           <Route path='/myRequisitions' element={<MyRequisitions />} />
+          <Route path='/approveRequisition' element={<ApproveRequisition />} />
         </Route>
       </Routes>
       <Footer />

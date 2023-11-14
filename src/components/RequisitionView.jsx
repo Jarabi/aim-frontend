@@ -21,7 +21,7 @@ const RequisitionView = (props) => {
   }, []);
 
   return (
-    <div className='container user-page'>
+    <div className='container user-form'>
       <h5 className='form-header text-center'>View Requisition</h5>
       {loading ? (
         <LoadingTable />
@@ -67,19 +67,15 @@ const RequisitionView = (props) => {
               </tr>
             </tbody>
           </table>
-          {user.role.name === "admin" && (
-            <>
-              <hr className='my-3' />
-              <div className='cta'>
-                <button
-                  className='btn btn-secondary me-3'
-                  onClick={() => navigate(-1)}
-                >
-                  Back
-                </button>
-              </div>
-            </>
-          )}
+          <hr className='my-3' />
+          <div className='cta'>
+            <button
+              className='btn btn-secondary me-3'
+              onClick={() => navigate(-1)}
+            >
+              Back
+            </button>
+          </div>
         </>
       )}
     </div>
