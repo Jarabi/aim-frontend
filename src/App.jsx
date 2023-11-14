@@ -14,24 +14,26 @@ import NewAsset from "./components/NewAsset";
 import ViewAssets from "./components/ViewAssets";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Requisitions from "./components/Requisitions";
+import MyRequisitions from "./components/MyRequisitions";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/login' element={<Login />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/requisitionView" element={<RequisitionView />} />
-          <Route path="/newRequisition" element={<NewRequisition />} />
-          <Route path="/viewUsers" element={<ViewUsers />} />
-          <Route path="/viewUser" element={<ViewUser />} />
-          <Route path="/newUser" element={<NewUser />} />
-          <Route path="/newAsset" element={<NewAsset />} />
-          <Route path="/viewAssets" element={<ViewAssets />} />
-          <Route path="/requisitions" element={<Requisitions />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/requisitionView' element={<RequisitionView />} />
+          <Route path='/newRequisition' element={<NewRequisition />} />
+          <Route path='/viewUsers' element={<ViewUsers />} />
+          <Route path='/viewUser' element={<ViewUser />} />
+          <Route path='/newUser' element={<NewUser />} />
+          <Route path='/newAsset' element={<NewAsset />} />
+          <Route path='/viewAssets' element={<ViewAssets />} />
+          <Route path='/requisitions' element={<Requisitions />} />
+          <Route path='/myRequisitions' element={<MyRequisitions />} />
         </Route>
       </Routes>
       <Footer />
