@@ -15,15 +15,27 @@ import ViewAssets from "./components/ViewAssets";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Requisitions from "./components/Requisitions";
 import MyRequisitions from "./components/MyRequisitions";
+import { useEffect, useState } from 'react';
+import { AUTH_TOKEN } from './api/constants';
 import ApproveRequisition from "./components/ApproveRequisition";
 
-function App() {
+function App () {
+  const [ isLoggedIn, setIsLoggedIn ] = useState( false );
+  const checkLoggedInStatus = () => {
+    const token = localStorage.getItem( AUTH_TOKEN );
+    if ( !token ) setIsLoggedIn( false );
+    else setIsLoggedIn( true );
+  }
+
+  useEffect( () => {
+    checkLoggedInStatus();
+  }, [])
   return (
     <>
-      <Header />
+      <Header isLoggedIn={ isLoggedIn} checkLoggedInStatus={checkLoggedInStatus}/>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={ <Login checkLoggedInStatus={ checkLoggedInStatus} />} />
         <Route element={<ProtectedRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/requisitionView' element={<RequisitionView />} />
