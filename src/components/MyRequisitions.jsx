@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import usersApi from "../api/users";
 import LoadingTable from "./LoadingTable";
 
 function MyRequisitions() {
+  const navigate = useNavigate();
   const [requisitions, setRequisitions] = useState([]);
   const [approvers, setApprovers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -123,6 +124,12 @@ function MyRequisitions() {
           No Requisitions Yet.
         </div>
       )}
+      <hr className='my-3' />
+      <div className='cta'>
+        <button className='btn btn-secondary me-3' onClick={() => navigate(-1)}>
+          Back
+        </button>
+      </div>
     </div>
   );
 }

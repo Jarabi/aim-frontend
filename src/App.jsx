@@ -15,6 +15,7 @@ import ViewAssets from "./components/ViewAssets";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Requisitions from "./components/Requisitions";
 import MyRequisitions from "./components/MyRequisitions";
+import ApproveRequisition from "./components/ApproveRequisition";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/viewAssets' element={<ViewAssets />} />
           <Route path='/requisitions' element={<Requisitions />} />
           <Route path='/myRequisitions' element={<MyRequisitions />} />
+          <Route path='/approveRequisition' element={<ApproveRequisition />} />
         </Route>
       </Routes>
       <Footer />
