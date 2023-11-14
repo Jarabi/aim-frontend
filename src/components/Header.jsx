@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import LogoutNav from "./LogoutNav";
 import headerLogo from "../images/logo.png";
-import { useAuth } from "../hooks/useAuth";
 
-export default function Header() {
+export default function Header({isLoggedIn, checkLoggedInStatus}) {
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
@@ -22,7 +21,6 @@ export default function Header() {
     }
   };
 
-  const { isLoggedIn } = useAuth();
   return (
     <header className="d-flex">
       <div className="container d-flex justify-content-between">
@@ -59,7 +57,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {isLoggedIn() ? <LogoutNav /> : <Nav />}
+        {isLoggedIn ? <LogoutNav checkLoggedInStatus={checkLoggedInStatus} /> : <Nav />}
       </div>
     </header>
   );

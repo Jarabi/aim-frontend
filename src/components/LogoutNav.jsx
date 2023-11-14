@@ -4,12 +4,13 @@ import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { CURRENT_USER } from "../api/constants";
 
-const LogoutNav = () => {
+const LogoutNav = ({checkLoggedInStatus}) => {
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
 
   const logoutHandler = () => {
     authApi.logUserOut();
+    checkLoggedInStatus();
     navigate("/login");
   };
 

@@ -5,7 +5,7 @@ import authApi from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import { CURRENT_USER } from "../api/constants";
 
-export default function Login() {
+export default function Login({checkLoggedInStatus}) {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
@@ -19,7 +19,8 @@ export default function Login() {
     const response = await authApi.loginUser(credentials);
 
     if (response.status === 201) {
-      localStorage.setItem(CURRENT_USER, JSON.stringify(response.data));
+      localStorage.setItem( CURRENT_USER, JSON.stringify( response.data ) );
+      checkLoggedInStatus();
       navigate("/dashboard");
     }
   };
