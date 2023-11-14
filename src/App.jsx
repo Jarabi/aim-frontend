@@ -18,6 +18,7 @@ import MyRequisitions from "./components/MyRequisitions";
 import { useEffect, useState } from "react";
 import { AUTH_TOKEN } from "./api/constants";
 import ApproveRequisition from "./components/ApproveRequisition";
+import AssignAsset from "./components/AssignAsset";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,7 +37,7 @@ function App() {
         isLoggedIn={isLoggedIn}
         checkLoggedInStatus={checkLoggedInStatus}
       />
-      <div style={{ minHeight: "80vh" }}>
+      <div style={{ minHeight: "90vh" }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route
@@ -54,6 +55,7 @@ function App() {
             <Route path="/viewAssets" element={<ViewAssets />} />
             <Route path="/requisitions" element={<Requisitions />} />
             <Route path="/myRequisitions" element={<MyRequisitions />} />
+            <Route path="/assignAsset" element={<AssignAsset />} />
             <Route
               path="/approveRequisition"
               element={<ApproveRequisition />}
