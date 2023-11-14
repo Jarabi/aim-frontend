@@ -8,7 +8,7 @@ function NewRequisition() {
   const [saving, setSaving] = useState(false);
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
-  const [justification, setustification] = useState("");
+  const [justification, setJustification] = useState("");
 
   useEffect(() => {
     const fetchId = async () => {
@@ -19,13 +19,6 @@ function NewRequisition() {
     fetchId();
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      title: e.target.value,
-    });
-  };
-
   const submitHandler = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -33,64 +26,66 @@ function NewRequisition() {
     const formData = { title, justification, userId };
     const res = await requisitionsApi.createRequisition(formData);
 
+    console.log("NEW REQUISITION RESPONSE ", res);
+
     if (res.status === 201) {
       setSaving(false);
     }
 
     setTitle("");
-    setustification("");
+    setJustification("");
   };
 
   return (
-    <div className='container user-form'>
-      <form className='border rounded p-3' onSubmit={submitHandler}>
-        <h5 className='form-header text-center'>New Requisition</h5>
-        <p className='fs-6'>Provide requsition details</p>
-        <hr className='my-3' />
-        <div className='mb-3'>
-          <label htmlFor='req-title' className='form-label'>
+    <div className="container user-form">
+      <form className="border rounded p-3" onSubmit={submitHandler}>
+        <h5 className="form-header text-center">New Requisition</h5>
+        <p className="fs-6">Provide requsition details</p>
+        <hr className="my-3" />
+        <div className="mb-3">
+          <label htmlFor="req-title" className="form-label">
             TITLE
           </label>
           <input
-            type='text'
-            className='form-control form-control-sm'
-            id='title'
-            name='title'
+            type="text"
+            className="form-control form-control-sm"
+            id="title"
+            name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className='invalid-feedback'>Please provide a title.</div>
+          <div className="invalid-feedback">Please provide a title.</div>
         </div>
 
-        <div className='mb-3'>
-          <label htmlFor='justification' className='form-label'>
+        <div className="mb-3">
+          <label htmlFor="justification" className="form-label">
             JUSTIFICATION
           </label>
           <textarea
-            className='form-control'
-            id='justification'
-            name='justification'
-            rows='3'
+            className="form-control"
+            id="justification"
+            name="justification"
+            rows="3"
             value={justification}
-            onChange={(e) => setustification(e.target.value)}
+            onChange={(e) => setJustification(e.target.value)}
           ></textarea>
         </div>
-        <hr className='my-3' />
-        <div className='cta'>
+        <hr className="my-3" />
+        <div className="cta">
           <button
-            className='btn btn-secondary me-3'
+            className="btn btn-secondary me-3"
             onClick={() => navigate(-1)}
           >
-            Cancel
+            Back
           </button>
-          <button className='btn btn-success' type='submit' disabled={saving}>
+          <button className="btn btn-success" type="submit" disabled={saving}>
             {saving ? (
               <>
                 <span
-                  className='spinner-border spinner-border-sm'
-                  aria-hidden='true'
+                  className="spinner-border spinner-border-sm"
+                  aria-hidden="true"
                 ></span>
-                <span role='status'>SAVING...</span>
+                <span role="status">SAVING...</span>
               </>
             ) : (
               "SAVE"

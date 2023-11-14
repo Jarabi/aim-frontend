@@ -7,16 +7,19 @@ function MyRequisitions() {
   const navigate = useNavigate();
   const [requisitions, setRequisitions] = useState([]);
   const [approvers, setApprovers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { id } = usersApi.fetchLocalUser();
-
     const loadUserRequisitions = async () => {
-      const response = await usersApi.fetchOneById(id);
+      setLoading(true);
+      const user = usersApi.fetchLocalUser();
+      const response = await usersApi.fetchOneById(user.id);
 
       if (response.status === 200) {
         setRequisitions(response.data.requisitions);
+        setLoading(false);
+      } else {
+        setRequisitions(user.requisitions);
         setLoading(false);
       }
     };
@@ -39,11 +42,11 @@ function MyRequisitions() {
   console.log(requisitions);
 
   return (
-    <div className='container user-page'>
-      <div className='top-section d-flex justify-content-end mb-3'>
+    <div className="container user-page">
+      <div className="top-section d-flex justify-content-end mb-3">
         <Link
-          className='btn btn-outline-primary btn-sm'
-          to='/newRequisition'
+          className="btn btn-outline-primary btn-sm"
+          to="/newRequisition"
           // state={userData}
         >
           New Requisition
@@ -69,20 +72,20 @@ function MyRequisitions() {
           </div>
         </div> */}
       </div>
-      <h5 className='form-header text-center'>My Requisitions</h5>
+      <h5 className="form-header text-center">My Requisitions</h5>
 
       {loading ? (
         <LoadingTable />
       ) : requisitions.length > 0 ? (
-        <table className='table table-sm table-striped table-hover table-bordered'>
+        <table className="table table-sm table-striped table-hover table-bordered">
           <thead>
             <tr>
-              <th scope='col'>TITLE</th>
-              <th scope='col'>JUSTIFICATION</th>
-              <th scope='col'>DATE CREATED</th>
-              <th scope='col'>STATUS</th>
-              <th scope='col'>APPROVER</th>
-              <th scope='col'>ACTION</th>
+              <th scope="col">TITLE</th>
+              <th scope="col">JUSTIFICATION</th>
+              <th scope="col">DATE CREATED</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">APPROVER</th>
+              <th scope="col">ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -105,10 +108,10 @@ function MyRequisitions() {
                   )}
                   <td>
                     <Link
-                      type='button'
-                      className='btn btn-outline-secondary btn-sm'
-                      id='requisitionView'
-                      to='/requisitionView'
+                      type="button"
+                      className="btn btn-outline-secondary btn-sm"
+                      id="requisitionView"
+                      to="/requisitionView"
                       state={requisition}
                     >
                       View
@@ -120,13 +123,13 @@ function MyRequisitions() {
           </tbody>
         </table>
       ) : (
-        <div className='alert alert-info text-center' role='alert'>
+        <div className="alert alert-info text-center" role="alert">
           No Requisitions Yet.
         </div>
       )}
-      <hr className='my-3' />
-      <div className='cta'>
-        <button className='btn btn-secondary me-3' onClick={() => navigate(-1)}>
+      <hr className="my-3" />
+      <div className="cta">
+        <button className="btn btn-secondary me-3" onClick={() => navigate(-1)}>
           Back
         </button>
       </div>

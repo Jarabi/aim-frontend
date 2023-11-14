@@ -9,23 +9,26 @@ import FeatureImg from "../images/blue-gradient.png";
 const Features = () => {
   return (
     <section
-      id='features'
+      id="features"
       style={{
         backgroundImage: `url(${FeatureImg})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        height: "max-content",
+        paddingTop: "30px",
+        paddingBottom: "30px",
       }}
     >
-      <div className='container'>
-        <h3 className='features-title text-center pt-5'>Product Features</h3>
-        <div className='row row-cols-2 mt-5'>
-          <div className='col'>
-            <div className='feature-icon'>
+      <div className="container">
+        <h3 className="features-title text-center pt-5">Product Features</h3>
+        <div className="row row-cols-2 mt-5">
+          <div className="col">
+            <div className="feature-icon">
               <MdOutlineInventory style={{ fontSize: "1.5rem" }} />
             </div>
-            <h6 className='feature-name'>Asset Inventory</h6>
+            <h6 className="feature-name">Asset Inventory</h6>
             <small>
               The Asset Inventory feature of our system empowers you to
               effortlessly track, manage, and catalog all your organization's
@@ -39,25 +42,25 @@ const Features = () => {
               control and decision-making.
             </small>
           </div>
-          <div className='col feature-illustration'>
+          <div className="col feature-illustration">
             <img
               src={inventorySvg}
-              alt='Inventory management'
+              alt="Inventory management"
               style={{ width: "12rem" }}
             />
           </div>
-          <div className='col feature-illustration'>
+          <div className="col feature-illustration">
             <img
               src={userMgtSvg}
-              alt='User management'
+              alt="User management"
               style={{ width: "25rem" }}
             />
           </div>
-          <div className='col mt-3'>
-            <div className='feature-icon'>
+          <div className="col mt-3">
+            <div className="feature-icon">
               <FaUsersGear style={{ fontSize: "1.5rem" }} />
             </div>
-            <h6 className='feature-name'>User Management</h6>
+            <h6 className="feature-name">User Management</h6>
             <small>
               User Management is a core component of our asset inventory system,
               designed to streamline the management of user access and
@@ -69,11 +72,11 @@ const Features = () => {
               team members while maintaining data integrity and confidentiality.
             </small>
           </div>
-          <div className='col'>
-            <div className='feature-icon'>
+          <div className="col">
+            <div className="feature-icon">
               <RiQuestionAnswerLine style={{ fontSize: "1.5rem" }} />
             </div>
-            <h6 className='feature-name'>Asset Requisitions</h6>
+            <h6 className="feature-name">Asset Requisitions</h6>
             <small>
               Our Asset Requisitions feature simplifies and formalizes the
               process of requesting and allocating assets within your
@@ -87,10 +90,10 @@ const Features = () => {
               transparent and auditable process.
             </small>
           </div>
-          <div className='col feature-illustration'>
+          <div className="col feature-illustration">
             <img
               src={requisitionsSvg}
-              alt='Asset requisitions'
+              alt="Asset requisitions"
               style={{ width: "12rem" }}
             />
           </div>

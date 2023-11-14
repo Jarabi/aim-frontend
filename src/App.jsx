@@ -15,41 +15,54 @@ import ViewAssets from "./components/ViewAssets";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Requisitions from "./components/Requisitions";
 import MyRequisitions from "./components/MyRequisitions";
-import { useEffect, useState } from 'react';
-import { AUTH_TOKEN } from './api/constants';
+import { useEffect, useState } from "react";
+import { AUTH_TOKEN } from "./api/constants";
 import ApproveRequisition from "./components/ApproveRequisition";
+import AssignAsset from "./components/AssignAsset";
 
-function App () {
-  const [ isLoggedIn, setIsLoggedIn ] = useState( false );
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const checkLoggedInStatus = () => {
-    const token = localStorage.getItem( AUTH_TOKEN );
-    if ( !token ) setIsLoggedIn( false );
-    else setIsLoggedIn( true );
-  }
+    const token = localStorage.getItem(AUTH_TOKEN);
+    if (!token) setIsLoggedIn(false);
+    else setIsLoggedIn(true);
+  };
 
-  useEffect( () => {
+  useEffect(() => {
     checkLoggedInStatus();
-  }, [])
+  }, []);
   return (
     <>
-      <Header isLoggedIn={ isLoggedIn} checkLoggedInStatus={checkLoggedInStatus}/>
-      <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={ <Login checkLoggedInStatus={ checkLoggedInStatus} />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/requisitionView' element={<RequisitionView />} />
-          <Route path='/newRequisition' element={<NewRequisition />} />
-          <Route path='/viewUsers' element={<ViewUsers />} />
-          <Route path='/viewUser' element={<ViewUser />} />
-          <Route path='/newUser' element={<NewUser />} />
-          <Route path='/newAsset' element={<NewAsset />} />
-          <Route path='/viewAssets' element={<ViewAssets />} />
-          <Route path='/requisitions' element={<Requisitions />} />
-          <Route path='/myRequisitions' element={<MyRequisitions />} />
-          <Route path='/approveRequisition' element={<ApproveRequisition />} />
-        </Route>
-      </Routes>
+      <Header
+        isLoggedIn={isLoggedIn}
+        checkLoggedInStatus={checkLoggedInStatus}
+      />
+      <div style={{ minHeight: "90vh" }}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/login"
+            element={<Login checkLoggedInStatus={checkLoggedInStatus} />}
+          />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/requisitionView" element={<RequisitionView />} />
+            <Route path="/newRequisition" element={<NewRequisition />} />
+            <Route path="/viewUsers" element={<ViewUsers />} />
+            <Route path="/viewUser" element={<ViewUser />} />
+            <Route path="/newUser" element={<NewUser />} />
+            <Route path="/newAsset" element={<NewAsset />} />
+            <Route path="/viewAssets" element={<ViewAssets />} />
+            <Route path="/requisitions" element={<Requisitions />} />
+            <Route path="/myRequisitions" element={<MyRequisitions />} />
+            <Route path="/assignAsset" element={<AssignAsset />} />
+            <Route
+              path="/approveRequisition"
+              element={<ApproveRequisition />}
+            />
+          </Route>
+        </Routes>
+      </div>
       <Footer />
     </>
   );
