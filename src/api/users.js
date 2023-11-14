@@ -63,6 +63,25 @@ const fetchOneById = async (id) => {
   }
 };
 
+/**
+ *
+ * @param {string} id
+ */
+const deleteUser = async (id) => {
+  try {
+    const response = await client.delete(`/users/${id}`);
+    return {
+      status: response.status,
+      data: response.data,
+    };
+  } catch (error) {
+    return {
+      status: error.response.status,
+      data: error.response.data,
+    };
+  }
+};
+
 const fetchLocalUser = () => {
   const user = JSON.parse(localStorage.getItem(CURRENT_USER));
   return user;
@@ -72,6 +91,7 @@ const usersApi = {
   createUser,
   fetchAll,
   fetchOneById,
+  deleteUser,
   fetchLocalUser,
 };
 

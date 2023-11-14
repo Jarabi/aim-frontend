@@ -1,43 +1,44 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import requisitionsApi from "../api/requisitions";
 import usersApi from "../api/users";
 
 function NewRequisition() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    title: "",
-    justification: "",
-    userId: "",
-  });
+  const [saving, setSaving] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [title, setTitle] = useState("");
+  const [justification, setustification] = useState("");
 
-  // useEffect(() => {
-  //   const { id } = usersApi.fetchLocalUser();
-  //   setFormData({
-  //     ...formData,
-  //     userId: id,
-  //   });
-  // }, []);
+  useEffect(() => {
+    const fetchId = async () => {
+      const { id } = await usersApi.fetchLocalUser();
+      setUserId(id);
+    };
+
+    fetchId();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      title: e.target.value,
     });
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setSaving(true);
 
-    const { id } = await usersApi.fetchLocalUser();
-
-    setFormData({
-      ...formData,
-      userId: id,
-    });
-
+    const formData = { title, justification, userId };
     const res = await requisitionsApi.createRequisition(formData);
-    console.log(res);
+
+    if (res.status === 201) {
+      setSaving(false);
+    }
+
+    setTitle("");
+    setustification("");
   };
 
   return (
@@ -55,7 +56,8 @@ function NewRequisition() {
             className='form-control form-control-sm'
             id='title'
             name='title'
-            onChange={handleChange}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <div className='invalid-feedback'>Please provide a title.</div>
         </div>
@@ -69,7 +71,8 @@ function NewRequisition() {
             id='justification'
             name='justification'
             rows='3'
-            onChange={handleChange}
+            value={justification}
+            onChange={(e) => setustification(e.target.value)}
           ></textarea>
         </div>
         <hr className='my-3' />
@@ -80,8 +83,18 @@ function NewRequisition() {
           >
             Cancel
           </button>
-          <button className='btn btn-success' type='submit'>
-            SAVE
+          <button className='btn btn-success' type='submit' disabled={saving}>
+            {saving ? (
+              <>
+                <span
+                  className='spinner-border spinner-border-sm'
+                  aria-hidden='true'
+                ></span>
+                <span role='status'>SAVING...</span>
+              </>
+            ) : (
+              "SAVE"
+            )}
           </button>
         </div>
       </form>

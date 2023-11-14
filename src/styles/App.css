@@ -129,7 +129,10 @@ section#features .feature-illustration {
 }
 
 .form-floating > input:focus,
-.form-control > input:focus {
+.form-control > input:focus,
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-select:focus {
   box-shadow: none;
 }
 
