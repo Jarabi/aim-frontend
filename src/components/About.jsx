@@ -65,7 +65,8 @@ const About = () => {
           >
             ALX Africa
           </Link>
-          . It is a collaborative effort between Chris Ndung'u and Alex Jarabi.
+          . It is a collaborative effort between Chris Ndung&apos;u and Alex
+          Jarabi.
         </p>
 
         <p className="call-to-action">
@@ -105,11 +106,11 @@ const About = () => {
         <h4 className="text-center mt-5">Meet The Contributors</h4>
         <div className="contributors d-flex justify-content-evenly">
           <div className="contact">
-            <h5 className="name">Chris Ndung'u</h5>
+            <h5 className="name">Chris Ndung&apos;u</h5>
             <div className="socials d-flex justify-content-around">
               <div className="linkedIn">
                 <Link
-                  to="https://www.linkedin.com/in/ckiratu"
+                  to="https://www.linkedin.com/in/chris-n-61a4b129b/"
                   target="_blank"
                   style={{ color: "white" }}
                   rel="noopener noreferrer"
