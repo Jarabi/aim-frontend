@@ -47,9 +47,11 @@ The development of this project is similar to similar one I had deployed some ti
 
 ### Landing Page
 
-| Hero                                                                                            | Features                                                                                            | About                                                                                            |
-| ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <img src="./src/images/landing_hero.png" width="400" style="display:block;margin: 40px auto" /> | <img src="./src/images/landing_features.png" width="400" style="display:block;margin: 40px auto" /> | <img src="./src/images/landing_about.png" width="400" style="display:block;margin: 40px auto" /> |
+<img src="./src/images/landing_hero.png" width="400" style="display:block;margin: 40px auto" />
+
+<img src="./src/images/landing_features.png" width="400" style="display:block;margin: 40px auto" />
+
+<img src="./src/images/landing_about.png" width="400" style="display:block;margin: 40px auto" />
 
 ## Project Inspiration
 
